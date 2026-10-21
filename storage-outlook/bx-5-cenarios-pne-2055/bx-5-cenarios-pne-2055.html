@@ -34,8 +34,13 @@
       });
     }
     // technology colours (BX extension): wind teal-blue, solar amber; lighter shade = same hue at lower opacity
-    var BX = { lime: "#A2B142", olive: "#455141", grey: "#BFBFBF", text: "#595959", axis: "#D9D9D9", bg: "#FFFFFF",
+    var BX = { lime: "#A2B142", olive: "#455141", grey: "#BFBFBF",
+      // ramps for several context series (lightest = oldest or smallest); the highlight stays lime
+      greys: ["#D4D4D4", "#ADADAD", "#878787", "#5F5F5F"],
+      greens: ["#CDD5C2", "#A3B095", "#77876A", "#4C5A44"], text: "#595959", axis: "#D9D9D9", bg: "#FFFFFF",
       wind: "#2F7A99", solar: "#E3A21A" };
+    // ramp for context series: olive greens (house choice, Oct 2026); ?ramp=grey for the grey alternative
+    var RAMP = Q.get("ramp") === "grey" ? BX.greys : BX.greens;
     var DATASETS = {"default": [{"year": 2025, "pde": 0.0, "tc": 0.0, "ta": 0.0, "tnz": 0.0}, {"year": 2026, "pde": 0.0, "tc": null, "ta": null, "tnz": null}, {"year": 2027, "pde": 0.0, "tc": null, "ta": null, "tnz": null}, {"year": 2028, "pde": 0.8, "tc": null, "ta": null, "tnz": null}, {"year": 2029, "pde": 1.6, "tc": null, "ta": null, "tnz": null}, {"year": 2030, "pde": 2.4, "tc": 2.2, "ta": 1.2, "tnz": 1.4}, {"year": 2031, "pde": 3.2, "tc": null, "ta": null, "tnz": null}, {"year": 2032, "pde": 4.0, "tc": null, "ta": null, "tnz": null}, {"year": 2033, "pde": 4.8, "tc": null, "ta": null, "tnz": null}, {"year": 2034, "pde": 5.6, "tc": null, "ta": null, "tnz": null}, {"year": 2035, "pde": 6.4, "tc": 2.2, "ta": 8.2, "tnz": 8.4}, {"year": 2036, "pde": 7.2, "tc": null, "ta": null, "tnz": null}, {"year": 2040, "pde": null, "tc": 6.0, "ta": 19.7, "tnz": 18.9}, {"year": 2045, "pde": null, "tc": 10.9, "ta": 31.2, "tnz": 34.9}, {"year": 2055, "pde": null, "tc": 29.6, "ta": 46.0, "tnz": 69.0}]}, OPTIONS = null, EXTRA = {"pde": 7.2, "ends": [{"y": 69.0, "text": "Net Zero 2050: 69 GW", "left": true}, {"y": 46.0, "text": "Transição Alongada: 46 GW", "left": false}, {"y": 29.6, "text": "Transição Continuada: 30 GW", "left": false}]};
     function br(v, d) { return Number(v).toLocaleString("pt-BR", { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 }); }
     function useSize() {
@@ -67,9 +72,11 @@
 
     function ChartBody(ctx) {
       var k = ctx.k, X = EXTRA;
-      var grey = ["tc", "ta", "tnz"].map(function(s) {
-        return e(Line, { key: s, dataKey: s, stroke: BX.grey, strokeWidth: 3 * k, strokeLinecap: "round", strokeLinejoin: "round",
-          dot: { r: 3.5 * k, fill: BX.grey, stroke: "none" }, connectNulls: true, isAnimationActive: !STATIC });
+      // scenarios on the ramp, smallest lightest
+      var grey = ["tc", "ta", "tnz"].map(function(s, i) {
+        var g = RAMP[i + 1];
+        return e(Line, { key: s, dataKey: s, stroke: g, strokeWidth: 3 * k, strokeLinecap: "round", strokeLinejoin: "round",
+          dot: { r: 3.5 * k, fill: g, stroke: "none" }, connectNulls: true, isAnimationActive: !STATIC });
       });
       var labels = X.ends.map(function(l, i) { return pin(ctx, "e" + i, 2055, l.y, l.text, { dx: (l.left ? -16 : -10) * k, dy: (l.left ? 6 : -12) * k, textAnchor: "end" }); });
       return e(ResponsiveContainer, { width: "100%", height: "100%" },
