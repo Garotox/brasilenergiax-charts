@@ -1,0 +1,113 @@
+{
+ "title": "Nos cenários do PNE 2055, as baterias chegam a entre 30 e 69 GW, de quatro a dez vezes o plano de 2036",
+ "subtitle": "Capacidade instalada de baterias em escala de rede (GW)",
+ "source": "Fonte: EPE (PNE 2055; PDE 2036)",
+ "note": "Nota: os caminhos do PNE 2055 são cenários, não projeções; a EPE publica valores a cada cinco anos.",
+ "data": [
+  {
+   "year": 2025,
+   "pde": 0.0,
+   "tc": 0.0,
+   "ta": 0.0,
+   "tnz": 0.0
+  },
+  {
+   "year": 2026,
+   "pde": 0.0,
+   "tc": null,
+   "ta": null,
+   "tnz": null
+  },
+  {
+   "year": 2027,
+   "pde": 0.0,
+   "tc": null,
+   "ta": null,
+   "tnz": null
+  },
+  {
+   "year": 2028,
+   "pde": 0.8,
+   "tc": null,
+   "ta": null,
+   "tnz": null
+  },
+  {
+   "year": 2029,
+   "pde": 1.6,
+   "tc": null,
+   "ta": null,
+   "tnz": null
+  },
+  {
+   "year": 2030,
+   "pde": 2.4,
+   "tc": 2.2,
+   "ta": 1.2,
+   "tnz": 1.4
+  },
+  {
+   "year": 2031,
+   "pde": 3.2,
+   "tc": null,
+   "ta": null,
+   "tnz": null
+  },
+  {
+   "year": 2032,
+   "pde": 4.0,
+   "tc": null,
+   "ta": null,
+   "tnz": null
+  },
+  {
+   "year": 2033,
+   "pde": 4.8,
+   "tc": null,
+   "ta": null,
+   "tnz": null
+  },
+  {
+   "year": 2034,
+   "pde": 5.6,
+   "tc": null,
+   "ta": null,
+   "tnz": null
+  },
+  {
+   "year": 2035,
+   "pde": 6.4,
+   "tc": 2.2,
+   "ta": 8.2,
+   "tnz": 8.4
+  },
+  {
+   "year": 2036,
+   "pde": 7.2,
+   "tc": null,
+   "ta": null,
+   "tnz": null
+  },
+  {
+   "year": 2040,
+   "pde": null,
+   "tc": 6.0,
+   "ta": 19.7,
+   "tnz": 18.9
+  },
+  {
+   "year": 2045,
+   "pde": null,
+   "tc": 10.9,
+   "ta": 31.2,
+   "tnz": 34.9
+  },
+  {
+   "year": 2055,
+   "pde": null,
+   "tc": 29.6,
+   "ta": 46.0,
+   "tnz": 69.0
+  }
+ ]
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nos cenários do PNE 2055, as baterias chegam a entre 30 e 69 GW, de quatro a dez vezes o plano de 2036</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.8.1/prop-types.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/recharts/2.12.7/Recharts.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: #FFFFFF; color: #595959;
+      font-family: 'DM Sans', -apple-system, 'Segoe UI', sans-serif; }
+    #root { width: 100%; height: 100%; }
+    button { font-family: inherit; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const { ResponsiveContainer, ComposedChart, BarChart, Bar, LineChart, Line, Cell, LabelList,
+      XAxis, YAxis, Tooltip, ReferenceLine } = Recharts;
+    var e = React.createElement, useState = React.useState, useEffect = React.useEffect;
+    var Q = new URLSearchParams(window.location.search);
+    var STATIC = Q.has("static");
+    // export mode: lay out at exactly 1600 x 900 whatever viewport headless Chrome reports before capture
+    if (STATIC) { var st = document.createElement("style");
+      st.textContent = "html, body { width: 1600px !important; height: 900px !important; }"; document.head.appendChild(st); }
+    if (STATIC) {
+      [Recharts.Bar, Recharts.Line].forEach(function(C) {
+        if (C && C.defaultProps) C.defaultProps = Object.assign({}, C.defaultProps, { isAnimationActive: false });
+      });
+    }
+    // technology colours (BX extension): wind teal-blue, solar amber; lighter shade = same hue at lower opacity
+    var BX = { lime: "#A2B142", olive: "#455141", grey: "#BFBFBF", text: "#595959", axis: "#D9D9D9", bg: "#FFFFFF",
+      wind: "#2F7A99", solar: "#E3A21A" };
+    var DATASETS = {"default": [{"year": 2025, "pde": 0.0, "tc": 0.0, "ta": 0.0, "tnz": 0.0}, {"year": 2026, "pde": 0.0, "tc": null, "ta": null, "tnz": null}, {"year": 2027, "pde": 0.0, "tc": null, "ta": null, "tnz": null}, {"year": 2028, "pde": 0.8, "tc": null, "ta": null, "tnz": null}, {"year": 2029, "pde": 1.6, "tc": null, "ta": null, "tnz": null}, {"year": 2030, "pde": 2.4, "tc": 2.2, "ta": 1.2, "tnz": 1.4}, {"year": 2031, "pde": 3.2, "tc": null, "ta": null, "tnz": null}, {"year": 2032, "pde": 4.0, "tc": null, "ta": null, "tnz": null}, {"year": 2033, "pde": 4.8, "tc": null, "ta": null, "tnz": null}, {"year": 2034, "pde": 5.6, "tc": null, "ta": null, "tnz": null}, {"year": 2035, "pde": 6.4, "tc": 2.2, "ta": 8.2, "tnz": 8.4}, {"year": 2036, "pde": 7.2, "tc": null, "ta": null, "tnz": null}, {"year": 2040, "pde": null, "tc": 6.0, "ta": 19.7, "tnz": 18.9}, {"year": 2045, "pde": null, "tc": 10.9, "ta": 31.2, "tnz": 34.9}, {"year": 2055, "pde": null, "tc": 29.6, "ta": 46.0, "tnz": 69.0}]}, OPTIONS = null, EXTRA = {"pde": 7.2, "ends": [{"y": 69.0, "text": "Net Zero 2050: 69 GW", "left": true}, {"y": 46.0, "text": "Transição Alongada: 46 GW", "left": false}, {"y": 29.6, "text": "Transição Continuada: 30 GW", "left": false}]};
+    function br(v, d) { return Number(v).toLocaleString("pt-BR", { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 }); }
+    function useSize() {
+      var s = useState(STATIC ? { w: 1600, h: 900 } : { w: window.innerWidth, h: window.innerHeight }); var size = s[0], set = s[1];
+      useEffect(function() { if (STATIC) return; function f() { set({ w: window.innerWidth, h: window.innerHeight }); }
+        window.addEventListener("resize", f); return function() { window.removeEventListener("resize", f); }; }, []);
+      return size;
+    }
+    function Tip(props) {
+      if (!props.active || !props.payload || !props.payload.length) return null;
+      var rows = props.rows ? props.rows(props.payload, props.label) : [];
+      return e("div", { style: { background: "#FFFFFF", border: "1px solid " + BX.axis, padding: "8px 12px", borderRadius: 4,
+          fontSize: 13, color: BX.text, fontFamily: "'DM Sans', sans-serif" } },
+        e("div", { style: { fontWeight: 700, marginBottom: 4 } }, props.title ? props.title(props.payload, props.label) : props.label),
+        rows.map(function(r, i) { return e("div", { key: i }, r); }));
+    }
+
+
+    function xAxis(ctx, p) { return e(XAxis, Object.assign({ tick: { fontSize: ctx.fs.axis, fill: BX.text, fontFamily: "'DM Sans', sans-serif" },
+      axisLine: { stroke: BX.axis }, tickLine: false }, p)); }
+    function yAxis(ctx, p) { return e(YAxis, Object.assign({ tick: { fontSize: ctx.fs.axis, fill: BX.text, fontFamily: "'DM Sans', sans-serif" },
+      axisLine: false, tickLine: false, width: 52 * ctx.k }, p)); }
+    function txt(ctx, x, y, s, o) { return e("text", Object.assign({ x: x, y: y, fontSize: ctx.fs.label, fill: BX.text,
+      fontFamily: "'DM Sans', sans-serif", stroke: "#FFFFFF", strokeWidth: 4, paintOrder: "stroke", strokeLinejoin: "round" }, o || {}), s); }
+    // a text label pinned to a data point (x, y) via a zero-length reference segment
+    function pin(ctx, key, x, y, s, o) { return e(ReferenceLine, { key: key, segment: [{ x: x, y: y }, { x: x, y: y }], stroke: "none", ifOverflow: "visible",
+      label: function(p) { var v = p.viewBox; return txt(ctx, v.x + ((o && o.dx) || 0), v.y + ((o && o.dy) || 0), s, o); } }); }
+    function head(ctx, s) { return e("p", { style: { fontSize: ctx.fs.label, fontWeight: 700, color: BX.text, marginBottom: 6 * ctx.k } }, s); }
+
+    function ChartBody(ctx) {
+      var k = ctx.k, X = EXTRA;
+      var grey = ["tc", "ta", "tnz"].map(function(s) {
+        return e(Line, { key: s, dataKey: s, stroke: BX.grey, strokeWidth: 3 * k, strokeLinecap: "round", strokeLinejoin: "round",
+          dot: { r: 3.5 * k, fill: BX.grey, stroke: "none" }, connectNulls: true, isAnimationActive: !STATIC });
+      });
+      var labels = X.ends.map(function(l, i) { return pin(ctx, "e" + i, 2055, l.y, l.text, { dx: (l.left ? -16 : -10) * k, dy: (l.left ? 6 : -12) * k, textAnchor: "end" }); });
+      return e(ResponsiveContainer, { width: "100%", height: "100%" },
+        e(LineChart, { data: ctx.data, margin: { top: 20 * k, right: 24 * k, left: 0, bottom: 4 * k } },
+          xAxis(ctx, { dataKey: "year", type: "number", domain: [2025, 2055], ticks: [2025, 2030, 2035, 2040, 2045, 2050, 2055], allowDecimals: false }),
+          yAxis(ctx, { domain: [0, 70], ticks: [0, 10, 20, 30, 40, 50, 60, 70] }),
+          e(Tooltip, { content: e(Tip, { title: function(p, l) { return String(l); }, rows: function(p) {
+            var n = { tc: "Transição Continuada", ta: "Transição Alongada", tnz: "Net Zero 2050", pde: "PDE 2036" };
+            return p.filter(function(q) { return q.value != null; }).map(function(q) { return n[q.dataKey] + ": " + br(q.value, 1) + " GW"; }); } }) }),
+          grey,
+          e(Line, { key: "pde", dataKey: "pde", stroke: BX.lime, strokeWidth: 4.5 * k, strokeLinecap: "round", dot: false, connectNulls: true,
+            isAnimationActive: !STATIC }),
+          labels,
+          pin(ctx, "pde", 2036, X.pde, "PDE 2036: " + br(X.pde, 1) + " GW", { dx: 12 * k, dy: 6 * k, fill: BX.olive, fontWeight: 700 })));
+    }
+
+
+    function App() {
+      var size = useSize();
+      var k = Math.max(0.5, Math.min(1, size.w / 1600));  // 1 at the 1600 x 900 design size
+      var mob = size.w < 640;
+      var vs = useState(Q.get("view") || (OPTIONS ? OPTIONS[0].key : "default")); var view = vs[0], setView = vs[1];
+      // remount the chart once after layout settles: headless Chrome (PNG export) keeps the first, smaller measure otherwise
+      var rs = useState(0); var remount = rs[0], setRemount = rs[1];
+      useEffect(function() { var t = setTimeout(function() { setRemount(1); }, 400); return function() { clearTimeout(t); }; }, []);
+      var opt = OPTIONS ? OPTIONS.filter(function(o) { return o.key === view; })[0] : null;
+      var title = (opt && opt.title) || "Nos cenários do PNE 2055, as baterias chegam a entre 30 e 69 GW, de quatro a dez vezes o plano de 2036";
+      var fs = { title: 24 * k, sub: 16 * k, axis: 16 * k, label: 15 * k, foot: Math.max(11, 14.67 * k) };
+      var ctx = { data: DATASETS[view], view: view, k: k, fs: fs, mob: mob, hl: Q.get("hl"), upto: Q.get("upto") };
+      var pad = (mob ? 14 : 48 * k) + "px " + (mob ? 14 : 56 * k) + "px";
+      return e("div", { style: { display: "flex", flexDirection: "column", width: "100%", height: "100%", padding: pad, background: BX.bg } },
+        e("h1", { style: { fontSize: fs.title, fontWeight: 700, color: BX.text, lineHeight: 1.25, textAlign: "left" } }, title),
+        e("p", { style: { fontSize: fs.sub, fontWeight: 400, color: BX.text, marginTop: 6 * k } }, "Capacidade instalada de baterias em escala de rede (GW)"),
+        (OPTIONS && !STATIC) ? e("div", { style: { display: "flex", gap: 6, marginTop: 12 * k } },
+          OPTIONS.map(function(o) {
+            var on = o.key === view;
+            return e("button", { key: o.key, onClick: function() { setView(o.key); },
+              style: { border: "1px solid " + (on ? BX.lime : BX.axis), background: on ? BX.lime : "#FFFFFF", color: on ? "#FFFFFF" : BX.text,
+                fontSize: 13, fontWeight: on ? 700 : 400, padding: "4px 12px", borderRadius: 999, cursor: "pointer" } }, o.label);
+          })) : null,
+        e("div", { key: "chart" + remount, style: { flex: 1, minHeight: 0, marginTop: 18 * k } }, ChartBody(ctx)),
+        "Nota: os caminhos do PNE 2055 são cenários, não projeções; a EPE publica valores a cada cinco anos." ? e("p", { style: { fontSize: fs.foot, color: BX.text, marginTop: 10 * k, lineHeight: 1.35 } }, "Nota: os caminhos do PNE 2055 são cenários, não projeções; a EPE publica valores a cada cinco anos.") : null,
+        e("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 24, marginTop: 6 * k,
+            fontSize: fs.foot, color: BX.text } },
+          e("span", null, "Fonte: EPE (PNE 2055; PDE 2036)"),
+          e("span", { style: { whiteSpace: "nowrap" } }, "@BrasilEnergiaX"))
+      );
+    }
+    // render after DM Sans loads, so the chart measures its final box (headless PNG export depends on it)
+    (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function() {
+      ReactDOM.createRoot(document.getElementById("root")).render(e(App));
+    });
+  </script>
+</body>
+</html>

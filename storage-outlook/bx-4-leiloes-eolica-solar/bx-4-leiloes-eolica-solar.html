@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Os leilões lançaram a eólica e a solar no Brasil. Agora é a vez do armazenamento</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.8.1/prop-types.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/recharts/2.12.7/Recharts.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: #FFFFFF; color: #595959;
+      font-family: 'DM Sans', -apple-system, 'Segoe UI', sans-serif; }
+    #root { width: 100%; height: 100%; }
+    button { font-family: inherit; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const { ResponsiveContainer, ComposedChart, BarChart, Bar, LineChart, Line, Cell, LabelList,
+      XAxis, YAxis, Tooltip, ReferenceLine } = Recharts;
+    var e = React.createElement, useState = React.useState, useEffect = React.useEffect;
+    var Q = new URLSearchParams(window.location.search);
+    var STATIC = Q.has("static");
+    // export mode: lay out at exactly 1600 x 900 whatever viewport headless Chrome reports before capture
+    if (STATIC) { var st = document.createElement("style");
+      st.textContent = "html, body { width: 1600px !important; height: 900px !important; }"; document.head.appendChild(st); }
+    if (STATIC) {
+      [Recharts.Bar, Recharts.Line].forEach(function(C) {
+        if (C && C.defaultProps) C.defaultProps = Object.assign({}, C.defaultProps, { isAnimationActive: false });
+      });
+    }
+    // technology colours (BX extension): wind teal-blue, solar amber; lighter shade = same hue at lower opacity
+    var BX = { lime: "#A2B142", olive: "#455141", grey: "#BFBFBF", text: "#595959", axis: "#D9D9D9", bg: "#FFFFFF",
+      wind: "#2F7A99", solar: "#E3A21A" };
+    var DATASETS = {"default": [{"label": "2009", "wind_auction": 0.0, "wind_other": 0.6, "solar_auction": 0.0, "solar_other": 0.0, "top": "1"}, {"label": "2010", "wind_auction": 0.0, "wind_other": 0.93, "solar_auction": 0.0, "solar_other": 0.0, "top": "1"}, {"label": "2011", "wind_auction": 0.19, "wind_other": 1.34, "solar_auction": 0.0, "solar_other": 0.01, "top": "2"}, {"label": "2012", "wind_auction": 0.56, "wind_other": 1.34, "solar_auction": 0.0, "solar_other": 0.01, "top": "2"}, {"label": "2013", "wind_auction": 0.85, "wind_other": 1.4, "solar_auction": 0.0, "solar_other": 0.01, "top": "2"}, {"label": "2014", "wind_auction": 3.1, "wind_other": 1.88, "solar_auction": 0.0, "solar_other": 0.02, "top": "5"}, {"label": "2015", "wind_auction": 4.9, "wind_other": 2.73, "solar_auction": 0.0, "solar_other": 0.03, "top": "8"}, {"label": "2016", "wind_auction": 7.26, "wind_other": 3.01, "solar_auction": 0.03, "solar_other": 0.03, "top": "10"}, {"label": "2017", "wind_auction": 9.01, "wind_other": 3.36, "solar_auction": 0.97, "solar_other": 0.04, "top": "13"}, {"label": "2018", "wind_auction": 10.84, "wind_other": 3.59, "solar_auction": 1.8, "solar_other": 0.05, "top": "16"}, {"label": "2019", "wind_auction": 11.36, "wind_other": 4.01, "solar_auction": 2.44, "solar_other": 0.08, "top": "18"}, {"label": "2020", "wind_auction": 12.62, "wind_other": 4.5, "solar_auction": 3.05, "solar_other": 0.3, "top": "20"}, {"label": "2021", "wind_auction": 14.35, "wind_other": 6.56, "solar_auction": 3.57, "solar_other": 1.13, "top": "26"}, {"label": "2022", "wind_auction": 15.51, "wind_other": 8.59, "solar_auction": 4.05, "solar_other": 3.41, "top": "32"}, {"label": "2023", "wind_auction": 17.35, "wind_other": 11.67, "solar_auction": 4.16, "solar_other": 7.42, "top": "41"}, {"label": "2024", "wind_auction": 17.99, "wind_other": 14.88, "solar_auction": 4.42, "solar_other": 12.81, "top": "50"}, {"label": "2025", "wind_auction": 19.08, "wind_other": 15.67, "solar_auction": 4.9, "solar_other": 15.18, "top": "55"}, {"label": "2026*", "wind_auction": 19.27, "wind_other": 15.67, "solar_auction": 5.39, "solar_other": 18.22, "top": "59"}]}, OPTIONS = null, EXTRA = {"ymax": 60, "yticks": [0, 10, 20, 30, 40, 50, 60], "series": [{"key": "wind_auction", "name": "Eólica, leilão", "color": "wind", "bold": true}, {"key": "wind_other", "name": "Eólica, outros", "color": "wind", "opacity": 0.4}, {"key": "solar_auction", "name": "Solar, leilão", "color": "solar", "bold": true}, {"key": "solar_other", "name": "Solar, outros", "color": "solar", "opacity": 0.4}]};
+    function br(v, d) { return Number(v).toLocaleString("pt-BR", { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 }); }
+    function useSize() {
+      var s = useState(STATIC ? { w: 1600, h: 900 } : { w: window.innerWidth, h: window.innerHeight }); var size = s[0], set = s[1];
+      useEffect(function() { if (STATIC) return; function f() { set({ w: window.innerWidth, h: window.innerHeight }); }
+        window.addEventListener("resize", f); return function() { window.removeEventListener("resize", f); }; }, []);
+      return size;
+    }
+    function Tip(props) {
+      if (!props.active || !props.payload || !props.payload.length) return null;
+      var rows = props.rows ? props.rows(props.payload, props.label) : [];
+      return e("div", { style: { background: "#FFFFFF", border: "1px solid " + BX.axis, padding: "8px 12px", borderRadius: 4,
+          fontSize: 13, color: BX.text, fontFamily: "'DM Sans', sans-serif" } },
+        e("div", { style: { fontWeight: 700, marginBottom: 4 } }, props.title ? props.title(props.payload, props.label) : props.label),
+        rows.map(function(r, i) { return e("div", { key: i }, r); }));
+    }
+
+
+    function xAxis(ctx, p) { return e(XAxis, Object.assign({ tick: { fontSize: ctx.fs.axis, fill: BX.text, fontFamily: "'DM Sans', sans-serif" },
+      axisLine: { stroke: BX.axis }, tickLine: false }, p)); }
+    function yAxis(ctx, p) { return e(YAxis, Object.assign({ tick: { fontSize: ctx.fs.axis, fill: BX.text, fontFamily: "'DM Sans', sans-serif" },
+      axisLine: false, tickLine: false, width: 52 * ctx.k }, p)); }
+    function txt(ctx, x, y, s, o) { return e("text", Object.assign({ x: x, y: y, fontSize: ctx.fs.label, fill: BX.text,
+      fontFamily: "'DM Sans', sans-serif", stroke: "#FFFFFF", strokeWidth: 4, paintOrder: "stroke", strokeLinejoin: "round" }, o || {}), s); }
+    // a text label pinned to a data point (x, y) via a zero-length reference segment
+    function pin(ctx, key, x, y, s, o) { return e(ReferenceLine, { key: key, segment: [{ x: x, y: y }, { x: x, y: y }], stroke: "none", ifOverflow: "visible",
+      label: function(p) { var v = p.viewBox; return txt(ctx, v.x + ((o && o.dx) || 0), v.y + ((o && o.dy) || 0), s, o); } }); }
+    function head(ctx, s) { return e("p", { style: { fontSize: ctx.fs.label, fontWeight: 700, color: BX.text, marginBottom: 6 * ctx.k } }, s); }
+
+    function ChartBody(ctx) {
+      var k = ctx.k, X = EXTRA, mob = ctx.mob, last = ctx.data.length - 1, r = ctx.data[last], n = X.series.length;
+      return e(ResponsiveContainer, { width: "100%", height: "100%" },
+        e(BarChart, { data: ctx.data, margin: { top: 30 * k, right: (mob ? 150 : 270) * k, left: 0, bottom: 4 * k }, barCategoryGap: "20%" },
+          xAxis(ctx, { dataKey: "label", interval: mob ? 2 : 0 }),
+          yAxis(ctx, { domain: [0, X.ymax], ticks: X.yticks }),
+          e(Tooltip, { cursor: { fill: "rgba(0,0,0,0.03)" }, content: e(Tip, { rows: function(p) { var q = p[0].payload;
+            return X.series.slice().reverse().map(function(s) { return s.name + ": " + br(q[s.key], 1) + " GW"; }); } }) }),
+          X.series.map(function(s, i) {
+            return e(Bar, { key: s.key, dataKey: s.key, stackId: "a", fill: BX[s.color], fillOpacity: s.opacity || 1, isAnimationActive: !STATIC },
+              e(LabelList, { content: function(p) { if (p.index !== last) return null;
+                return txt(ctx, p.x + p.width + 12 * k, p.y + p.height / 2 + 5 * k, s.name + ": " + br(r[s.key], 1) + " GW",
+                  s.bold ? { fontWeight: 700 } : {}); } }),
+              i === n - 1 ? e(LabelList, { dataKey: "top", content: function(p) {
+                return txt(ctx, p.x + p.width / 2, p.y - 8 * k, p.value, { textAnchor: "middle", fontSize: ctx.fs.label * 0.95 }); } }) : null);
+          })));
+    }
+
+
+    function App() {
+      var size = useSize();
+      var k = Math.max(0.5, Math.min(1, size.w / 1600));  // 1 at the 1600 x 900 design size
+      var mob = size.w < 640;
+      var vs = useState(Q.get("view") || (OPTIONS ? OPTIONS[0].key : "default")); var view = vs[0], setView = vs[1];
+      // remount the chart once after layout settles: headless Chrome (PNG export) keeps the first, smaller measure otherwise
+      var rs = useState(0); var remount = rs[0], setRemount = rs[1];
+      useEffect(function() { var t = setTimeout(function() { setRemount(1); }, 400); return function() { clearTimeout(t); }; }, []);
+      var opt = OPTIONS ? OPTIONS.filter(function(o) { return o.key === view; })[0] : null;
+      var title = (opt && opt.title) || "Os leilões lançaram a eólica e a solar no Brasil. Agora é a vez do armazenamento";
+      var fs = { title: 24 * k, sub: 16 * k, axis: 16 * k, label: 15 * k, foot: Math.max(11, 14.67 * k) };
+      var ctx = { data: DATASETS[view], view: view, k: k, fs: fs, mob: mob, hl: Q.get("hl"), upto: Q.get("upto") };
+      var pad = (mob ? 14 : 48 * k) + "px " + (mob ? 14 : 56 * k) + "px";
+      return e("div", { style: { display: "flex", flexDirection: "column", width: "100%", height: "100%", padding: pad, background: BX.bg } },
+        e("h1", { style: { fontSize: fs.title, fontWeight: 700, color: BX.text, lineHeight: 1.25, textAlign: "left" } }, title),
+        e("p", { style: { fontSize: fs.sub, fontWeight: 400, color: BX.text, marginTop: 6 * k } }, "Eólica e solar centralizada instaladas no fim de cada ano, por forma de contratação (GW); tons fortes: usinas com contrato de leilão regulado"),
+        (OPTIONS && !STATIC) ? e("div", { style: { display: "flex", gap: 6, marginTop: 12 * k } },
+          OPTIONS.map(function(o) {
+            var on = o.key === view;
+            return e("button", { key: o.key, onClick: function() { setView(o.key); },
+              style: { border: "1px solid " + (on ? BX.lime : BX.axis), background: on ? BX.lime : "#FFFFFF", color: on ? "#FFFFFF" : BX.text,
+                fontSize: 13, fontWeight: on ? 700 : 400, padding: "4px 12px", borderRadius: 999, cursor: "pointer" } }, o.label);
+          })) : null,
+        e("div", { key: "chart" + remount, style: { flex: 1, minHeight: 0, marginTop: 18 * k } }, ChartBody(ctx)),
+        "Nota: 2026* até 01/10. Outros: mercado livre, PROINFA e autoprodução. Exclui micro e minigeração distribuída (MMGD), que cresce com incentivos próprios." ? e("p", { style: { fontSize: fs.foot, color: BX.text, marginTop: 10 * k, lineHeight: 1.35 } }, "Nota: 2026* até 01/10. Outros: mercado livre, PROINFA e autoprodução. Exclui micro e minigeração distribuída (MMGD), que cresce com incentivos próprios.") : null,
+        e("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 24, marginTop: 6 * k,
+            fontSize: fs.foot, color: BX.text } },
+          e("span", null, "Fonte: ANEEL (2026); CCEE (2026)"),
+          e("span", { style: { whiteSpace: "nowrap" } }, "@BrasilEnergiaX"))
+      );
+    }
+    // render after DM Sans loads, so the chart measures its final box (headless PNG export depends on it)
+    (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function() {
+      ReactDOM.createRoot(document.getElementById("root")).render(e(App));
+    });
+  </script>
+</body>
+</html>

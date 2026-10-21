@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O plano de baterias da EPE cresceu nove vezes em duas edições, para 7,2 GW</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.8.1/prop-types.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/recharts/2.12.7/Recharts.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: #FFFFFF; color: #595959;
+      font-family: 'DM Sans', -apple-system, 'Segoe UI', sans-serif; }
+    #root { width: 100%; height: 100%; }
+    button { font-family: inherit; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const { ResponsiveContainer, ComposedChart, BarChart, Bar, LineChart, Line, Cell, LabelList,
+      XAxis, YAxis, Tooltip, ReferenceLine } = Recharts;
+    var e = React.createElement, useState = React.useState, useEffect = React.useEffect;
+    var Q = new URLSearchParams(window.location.search);
+    var STATIC = Q.has("static");
+    // export mode: lay out at exactly 1600 x 900 whatever viewport headless Chrome reports before capture
+    if (STATIC) { var st = document.createElement("style");
+      st.textContent = "html, body { width: 1600px !important; height: 900px !important; }"; document.head.appendChild(st); }
+    if (STATIC) {
+      [Recharts.Bar, Recharts.Line].forEach(function(C) {
+        if (C && C.defaultProps) C.defaultProps = Object.assign({}, C.defaultProps, { isAnimationActive: false });
+      });
+    }
+    // technology colours (BX extension): wind teal-blue, solar amber; lighter shade = same hue at lower opacity
+    var BX = { lime: "#A2B142", olive: "#455141", grey: "#BFBFBF", text: "#595959", axis: "#D9D9D9", bg: "#FFFFFF",
+      wind: "#2F7A99", solar: "#E3A21A" };
+    var DATASETS = {"default": [{"name": "PDE 2034", "lo": 0.8, "range": 0, "hl": false, "label": "0,8 GW", "tip": "PDE 2034, até 2034: 0,8 GW"}, {"name": "PDE 2035", "lo": 6.63112651892711, "range": 0, "hl": false, "label": "6,6 GW", "tip": "PDE 2035, até 2035: 6,6 GW"}, {"name": "PDE 2036", "lo": 7.2, "range": 0, "hl": true, "label": "7,2 GW", "tip": "PDE 2036, até 2036: 7,2 GW"}, {"name": "Leilão de dezembro", "lo": 2, "range": 4, "hl": false, "label": "2 a 6 GW", "tip": "Leilão de dezembro de 2026 (esperado): 2 a 6 GW"}]}, OPTIONS = null, EXTRA = {"ymax": 8, "yticks": [0, 2, 4, 6, 8]};
+    function br(v, d) { return Number(v).toLocaleString("pt-BR", { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 }); }
+    function useSize() {
+      var s = useState(STATIC ? { w: 1600, h: 900 } : { w: window.innerWidth, h: window.innerHeight }); var size = s[0], set = s[1];
+      useEffect(function() { if (STATIC) return; function f() { set({ w: window.innerWidth, h: window.innerHeight }); }
+        window.addEventListener("resize", f); return function() { window.removeEventListener("resize", f); }; }, []);
+      return size;
+    }
+    function Tip(props) {
+      if (!props.active || !props.payload || !props.payload.length) return null;
+      var rows = props.rows ? props.rows(props.payload, props.label) : [];
+      return e("div", { style: { background: "#FFFFFF", border: "1px solid " + BX.axis, padding: "8px 12px", borderRadius: 4,
+          fontSize: 13, color: BX.text, fontFamily: "'DM Sans', sans-serif" } },
+        e("div", { style: { fontWeight: 700, marginBottom: 4 } }, props.title ? props.title(props.payload, props.label) : props.label),
+        rows.map(function(r, i) { return e("div", { key: i }, r); }));
+    }
+
+
+    function xAxis(ctx, p) { return e(XAxis, Object.assign({ tick: { fontSize: ctx.fs.axis, fill: BX.text, fontFamily: "'DM Sans', sans-serif" },
+      axisLine: { stroke: BX.axis }, tickLine: false }, p)); }
+    function yAxis(ctx, p) { return e(YAxis, Object.assign({ tick: { fontSize: ctx.fs.axis, fill: BX.text, fontFamily: "'DM Sans', sans-serif" },
+      axisLine: false, tickLine: false, width: 52 * ctx.k }, p)); }
+    function txt(ctx, x, y, s, o) { return e("text", Object.assign({ x: x, y: y, fontSize: ctx.fs.label, fill: BX.text,
+      fontFamily: "'DM Sans', sans-serif", stroke: "#FFFFFF", strokeWidth: 4, paintOrder: "stroke", strokeLinejoin: "round" }, o || {}), s); }
+    // a text label pinned to a data point (x, y) via a zero-length reference segment
+    function pin(ctx, key, x, y, s, o) { return e(ReferenceLine, { key: key, segment: [{ x: x, y: y }, { x: x, y: y }], stroke: "none", ifOverflow: "visible",
+      label: function(p) { var v = p.viewBox; return txt(ctx, v.x + ((o && o.dx) || 0), v.y + ((o && o.dy) || 0), s, o); } }); }
+    function head(ctx, s) { return e("p", { style: { fontSize: ctx.fs.label, fontWeight: 700, color: BX.text, marginBottom: 6 * ctx.k } }, s); }
+
+    function ChartBody(ctx) {
+      var k = ctx.k, X = EXTRA;
+      return e(ResponsiveContainer, { width: "100%", height: "100%" },
+        e(BarChart, { data: ctx.data, margin: { top: 44 * k, right: 20 * k, left: 0, bottom: 4 * k }, barCategoryGap: "30%" },
+          xAxis(ctx, { dataKey: "name", interval: 0 }),
+          yAxis(ctx, { domain: [0, X.ymax], ticks: X.yticks, tickFormatter: function(v) { return br(v); } }),
+          e(Tooltip, { cursor: { fill: "rgba(0,0,0,0.03)" }, content: e(Tip, { rows: function(p) { return [p[0].payload.tip]; } }) }),
+          e(Bar, { dataKey: "lo", stackId: "a" }, ctx.data.map(function(r, i) { return e(Cell, { key: i, fill: r.hl ? BX.lime : BX.olive }); })),
+          e(Bar, { dataKey: "range", stackId: "a" }, ctx.data.map(function(r, i) { return e(Cell, { key: i, fill: BX.olive, fillOpacity: 0.35 }); }),
+            e(LabelList, { dataKey: "label", content: function(p) { if (!p.value) return null;
+              return txt(ctx, p.x + p.width / 2, p.y - 12 * k, p.value, { textAnchor: "middle", fontWeight: 700, fontSize: ctx.fs.label * 1.15 }); } }))));
+    }
+
+
+    function App() {
+      var size = useSize();
+      var k = Math.max(0.5, Math.min(1, size.w / 1600));  // 1 at the 1600 x 900 design size
+      var mob = size.w < 640;
+      var vs = useState(Q.get("view") || (OPTIONS ? OPTIONS[0].key : "default")); var view = vs[0], setView = vs[1];
+      // remount the chart once after layout settles: headless Chrome (PNG export) keeps the first, smaller measure otherwise
+      var rs = useState(0); var remount = rs[0], setRemount = rs[1];
+      useEffect(function() { var t = setTimeout(function() { setRemount(1); }, 400); return function() { clearTimeout(t); }; }, []);
+      var opt = OPTIONS ? OPTIONS.filter(function(o) { return o.key === view; })[0] : null;
+      var title = (opt && opt.title) || "O plano de baterias da EPE cresceu nove vezes em duas edições, para 7,2 GW";
+      var fs = { title: 24 * k, sub: 16 * k, axis: 16 * k, label: 15 * k, foot: Math.max(11, 14.67 * k) };
+      var ctx = { data: DATASETS[view], view: view, k: k, fs: fs, mob: mob, hl: Q.get("hl"), upto: Q.get("upto") };
+      var pad = (mob ? 14 : 48 * k) + "px " + (mob ? 14 : 56 * k) + "px";
+      return e("div", { style: { display: "flex", flexDirection: "column", width: "100%", height: "100%", padding: pad, background: BX.bg } },
+        e("h1", { style: { fontSize: fs.title, fontWeight: 700, color: BX.text, lineHeight: 1.25, textAlign: "left" } }, title),
+        e("p", { style: { fontSize: fs.sub, fontWeight: 400, color: BX.text, marginTop: 6 * k } }, "Baterias ao fim do horizonte de cada plano e faixa esperada para o leilão de dezembro de 2026 (GW)"),
+        (OPTIONS && !STATIC) ? e("div", { style: { display: "flex", gap: 6, marginTop: 12 * k } },
+          OPTIONS.map(function(o) {
+            var on = o.key === view;
+            return e("button", { key: o.key, onClick: function() { setView(o.key); },
+              style: { border: "1px solid " + (on ? BX.lime : BX.axis), background: on ? BX.lime : "#FFFFFF", color: on ? "#FFFFFF" : BX.text,
+                fontSize: 13, fontWeight: on ? 700 : 400, padding: "4px 12px", borderRadius: 999, cursor: "pointer" } }, o.label);
+          })) : null,
+        e("div", { key: "chart" + remount, style: { flex: 1, minHeight: 0, marginTop: 18 * k } }, ChartBody(ctx)),
+        "Nota: expansão indicativa. Faixa do leilão segundo o TCU; sobram de 1,2 a 5,2 GW do plano de 2036 para leilões seguintes." ? e("p", { style: { fontSize: fs.foot, color: BX.text, marginTop: 10 * k, lineHeight: 1.35 } }, "Nota: expansão indicativa. Faixa do leilão segundo o TCU; sobram de 1,2 a 5,2 GW do plano de 2036 para leilões seguintes.") : null,
+        e("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 24, marginTop: 6 * k,
+            fontSize: fs.foot, color: BX.text } },
+          e("span", null, "Fonte: EPE (PDE 2034, 2035 e 2036); TCU (2026)"),
+          e("span", { style: { whiteSpace: "nowrap" } }, "@BrasilEnergiaX"))
+      );
+    }
+    // render after DM Sans loads, so the chart measures its final box (headless PNG export depends on it)
+    (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function() {
+      ReactDOM.createRoot(document.getElementById("root")).render(e(App));
+    });
+  </script>
+</body>
+</html>

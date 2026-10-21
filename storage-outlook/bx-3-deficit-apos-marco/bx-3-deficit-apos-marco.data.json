@@ -1,0 +1,28 @@
+{
+ "title": "Mesmo após os 19,5 GW de março, a probabilidade de déficit fica de quatro a nove vezes acima do limite de 5% até 2030",
+ "subtitle": "Potência contratada nos leilões de março de 2026 (GW) e probabilidade de perda de carga no SIN (%)",
+ "source": "Fonte: ONS (PEN 2026); CCEE (2026)",
+ "note": "Nota: probabilidade de perda de carga (LOLP) lida dos gráficos do ONS (PEN 2026, p. 39 e 40), que não publica tabela. Sem os contratos de março: sensibilidade 1 do ONS.",
+ "data": [
+  {
+   "year": "2027",
+   "com": 20,
+   "sem": 39
+  },
+  {
+   "year": "2028",
+   "com": 33,
+   "sem": 67
+  },
+  {
+   "year": "2029",
+   "com": 32,
+   "sem": 92
+  },
+  {
+   "year": "2030",
+   "com": 43,
+   "sem": 100
+  }
+ ]
+}
