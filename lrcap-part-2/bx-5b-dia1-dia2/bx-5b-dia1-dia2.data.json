@@ -1,0 +1,62 @@
+{
+ "title": "A dívida barata do BNDES compensa um prêmio de conteúdo local de só cerca de 10%; o BNDES estima o prêmio em 20% a 40%",
+ "subtitle": "Receita fixa de equilíbrio no Nordeste, em barramento com bônus, por prêmio de capex do kit local sobre o importado (R$ mi/MW/ano)",
+ "source": "Fonte: BNDES (2026); EPE (2026); MME (2026); Watt Capital (2026)",
+ "note": "Nota: kit importado a R$ 4.690/kW (2027). Dívida de mercado a IPCA + 9% (13,4%). Supomos Fundo Clima (7,8%) nas obras do kit importado, 25% do capex.",
+ "data": [
+  {
+   "premium_pct": 0,
+   "day1_bndes": 1.026,
+   "day2_works": 1.096,
+   "day2_works_high": 1.189
+  },
+  {
+   "premium_pct": 5,
+   "day1_bndes": 1.06,
+   "day2_works": 1.096,
+   "day2_works_high": 1.189
+  },
+  {
+   "premium_pct": 10,
+   "day1_bndes": 1.095,
+   "day2_works": 1.096,
+   "day2_works_high": 1.189
+  },
+  {
+   "premium_pct": 15,
+   "day1_bndes": 1.129,
+   "day2_works": 1.096,
+   "day2_works_high": 1.189
+  },
+  {
+   "premium_pct": 20,
+   "day1_bndes": 1.164,
+   "day2_works": 1.096,
+   "day2_works_high": 1.189
+  },
+  {
+   "premium_pct": 25,
+   "day1_bndes": 1.199,
+   "day2_works": 1.096,
+   "day2_works_high": 1.189
+  },
+  {
+   "premium_pct": 30,
+   "day1_bndes": 1.233,
+   "day2_works": 1.096,
+   "day2_works_high": 1.189
+  },
+  {
+   "premium_pct": 35,
+   "day1_bndes": 1.268,
+   "day2_works": 1.096,
+   "day2_works_high": 1.189
+  },
+  {
+   "premium_pct": 40,
+   "day1_bndes": 1.302,
+   "day2_works": 1.096,
+   "day2_works_high": 1.189
+  }
+ ]
+}

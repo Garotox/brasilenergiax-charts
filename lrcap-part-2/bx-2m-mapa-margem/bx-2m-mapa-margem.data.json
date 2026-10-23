@@ -1,0 +1,2492 @@
+{
+ "title": "No Nordeste, 211 GW de baterias disputam 14,9 GW de margem de escoamento: 14 vezes. No resto do Brasil, 2 vezes",
+ "subtitle": "Margem de escoamento restante por barramento candidato (MW)",
+ "source": "Fonte: ONS (NT 0095/2026); EPE (2026); MME (Portaria 136/2026); IBGE",
+ "note": "Nota: os pontos superestimam a margem onde o ONS limita uma área inteira, como no norte de Minas e no sudoeste da Bahia. A EPE publica os cadastros só por região.",
+ "data": [
+  {
+   "bus_name": "Arinos 2 (ARI2)",
+   "uf": "MG",
+   "margin_mw": 2960.0,
+   "bonus": true,
+   "voltages": "500",
+   "x": 715.0,
+   "y": 552.5
+  },
+  {
+   "bus_name": "Janaúba 3 (JBA3)",
+   "uf": "MG",
+   "margin_mw": 2920.0,
+   "bonus": true,
+   "voltages": "138/230/500",
+   "x": 782.5,
+   "y": 556.9
+  },
+  {
+   "bus_name": "Jaíba (JAB)",
+   "uf": "MG",
+   "margin_mw": 2575.0,
+   "bonus": true,
+   "voltages": "138/230/500",
+   "x": 772.6,
+   "y": 540.4
+  },
+  {
+   "bus_name": "Queimada Nova II (QND)",
+   "uf": "PI",
+   "margin_mw": 2100.0,
+   "bonus": true,
+   "voltages": "500",
+   "x": 831.0,
+   "y": 364.0
+  },
+  {
+   "bus_name": "Igaporã III (IGT)",
+   "uf": "BA",
+   "margin_mw": 2000.0,
+   "bonus": true,
+   "voltages": "230/500",
+   "x": 800.7,
+   "y": 505.9
+  },
+  {
+   "bus_name": "Sol do Sertão (SDS)",
+   "uf": "BA",
+   "margin_mw": 1890.0,
+   "bonus": true,
+   "voltages": "500",
+   "x": 800.8,
+   "y": 462.3
+  },
+  {
+   "bus_name": "Bom Jesus da Lapa II (BJD)",
+   "uf": "BA",
+   "margin_mw": 1800.0,
+   "bonus": true,
+   "voltages": "230/500",
+   "x": 782.1,
+   "y": 488.2
+  },
+  {
+   "bus_name": "Morro do Chapéu II (MPD)",
+   "uf": "BA",
+   "margin_mw": 1800.0,
+   "bonus": true,
+   "voltages": "69/230/500",
+   "x": 831.8,
+   "y": 446.2
+  },
+  {
+   "bus_name": "São Simão (SSSE)",
+   "uf": "MG",
+   "margin_mw": 1790.0,
+   "bonus": false,
+   "voltages": "500",
+   "x": 599.6,
+   "y": 638.5
+  },
+  {
+   "bus_name": "Campos 2 (CMP2)",
+   "uf": "RJ",
+   "margin_mw": 1600.0,
+   "bonus": false,
+   "voltages": "500",
+   "x": 832.9,
+   "y": 712.3
+  },
+  {
+   "bus_name": "Ourolândia II (OUR)",
+   "uf": "BA",
+   "margin_mw": 1500.0,
+   "bonus": true,
+   "voltages": "230/500",
+   "x": 833.2,
+   "y": 424.1
+  },
+  {
+   "bus_name": "Milagres II (MLD)",
+   "uf": "CE",
+   "margin_mw": 1450.0,
+   "bonus": true,
+   "voltages": "500",
+   "x": 894.9,
+   "y": 331.3
+  },
+  {
+   "bus_name": "Santa Vitória do Palmar 2 (SPA2)",
+   "uf": "RS",
+   "margin_mw": 1450.0,
+   "bonus": false,
+   "voltages": "138/525",
+   "x": 527.9,
+   "y": 1018.6
+  },
+  {
+   "bus_name": "São João do Piauí (SJI)",
+   "uf": "PI",
+   "margin_mw": 1350.0,
+   "bonus": true,
+   "voltages": "69/230/500",
+   "x": 810.5,
+   "y": 357.9
+  },
+  {
+   "bus_name": "Pecém II (PED)",
+   "uf": "CE",
+   "margin_mw": 1200.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 896.2,
+   "y": 232.8
+  },
+  {
+   "bus_name": "Areia – Joinville Sul (ARE_JOI)",
+   "uf": "SC",
+   "margin_mw": 1190.0,
+   "bonus": false,
+   "voltages": "525",
+   "x": 605.2,
+   "y": 826.8
+  },
+  {
+   "bus_name": "Sobradinho (SOB)",
+   "uf": "BA",
+   "margin_mw": 1100.0,
+   "bonus": true,
+   "voltages": "230/500",
+   "x": 846.3,
+   "y": 386.3
+  },
+  {
+   "bus_name": "Buritizeiro 3 (BRZ3)",
+   "uf": "MG",
+   "margin_mw": 1070.0,
+   "bonus": true,
+   "voltages": "345",
+   "x": 736.7,
+   "y": 597.1
+  },
+  {
+   "bus_name": "Curral Novo do Piauí II (CNP)",
+   "uf": "PI",
+   "margin_mw": 1050.0,
+   "bonus": true,
+   "voltages": "230/500",
+   "x": 851.1,
+   "y": 349.4
+  },
+  {
+   "bus_name": "Jandaíra II (JDD)",
+   "uf": "RN",
+   "margin_mw": 1050.0,
+   "bonus": false,
+   "voltages": "500",
+   "x": 966.0,
+   "y": 280.7
+  },
+  {
+   "bus_name": "Várzea da Palma 4 (VZP4)",
+   "uf": "MG",
+   "margin_mw": 1050.0,
+   "bonus": true,
+   "voltages": "345",
+   "x": 748.9,
+   "y": 600.5
+  },
+  {
+   "bus_name": "Paraíso 2 (PSO2)",
+   "uf": "MS",
+   "margin_mw": 990.0,
+   "bonus": false,
+   "voltages": "138/230",
+   "x": 539.2,
+   "y": 645.0
+  },
+  {
+   "bus_name": "Inocência (INO)",
+   "uf": "MS",
+   "margin_mw": 950.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 576.4,
+   "y": 655.0
+  },
+  {
+   "bus_name": "Tianguá II (TGD)",
+   "uf": "CE",
+   "margin_mw": 950.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 841.1,
+   "y": 237.3
+  },
+  {
+   "bus_name": "Paracatu 4 (PR4)",
+   "uf": "MG",
+   "margin_mw": 940.0,
+   "bonus": false,
+   "voltages": "138/500",
+   "x": 685.9,
+   "y": 587.1
+  },
+  {
+   "bus_name": "Acaraú III (AUT)",
+   "uf": "CE",
+   "margin_mw": 900.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 864.7,
+   "y": 215.3
+  },
+  {
+   "bus_name": "Pindaí II (PND)",
+   "uf": "BA",
+   "margin_mw": 900.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 800.6,
+   "y": 517.4
+  },
+  {
+   "bus_name": "Serra das Almas II (SDA2)",
+   "uf": "MG",
+   "margin_mw": 880.0,
+   "bonus": true,
+   "voltages": "500",
+   "x": 796.7,
+   "y": 529.0
+  },
+  {
+   "bus_name": "Correntina (CRT)",
+   "uf": "BA",
+   "margin_mw": 820.0,
+   "bonus": true,
+   "voltages": "500",
+   "x": 745.7,
+   "y": 491.3
+  },
+  {
+   "bus_name": "Bom Nome (BNO)",
+   "uf": "PE",
+   "margin_mw": 800.0,
+   "bonus": true,
+   "voltages": "138/230",
+   "x": 902.5,
+   "y": 348.4
+  },
+  {
+   "bus_name": "Gentio do Ouro II (GDO)",
+   "uf": "BA",
+   "margin_mw": 800.0,
+   "bonus": true,
+   "voltages": "230/500",
+   "x": 799.4,
+   "y": 434.8
+  },
+  {
+   "bus_name": "Gentio do Ouro II - Sol do Sertão - C1 (GDO_SDS_C1)",
+   "uf": "BA",
+   "margin_mw": 800.0,
+   "bonus": false,
+   "voltages": "500",
+   "x": 800.1,
+   "y": 448.5
+  },
+  {
+   "bus_name": "Gilbués II (GID)",
+   "uf": "PI",
+   "margin_mw": 790.0,
+   "bonus": true,
+   "voltages": "230/500",
+   "x": 730.9,
+   "y": 394.6
+  },
+  {
+   "bus_name": "Pirapora 2 – Várzea da Palma 4 - C1 (PI2_VZP4_C1)",
+   "uf": "MG",
+   "margin_mw": 780.0,
+   "bonus": false,
+   "voltages": "345",
+   "x": 746.0,
+   "y": 597.3
+  },
+  {
+   "bus_name": "Chapadão (CAO)",
+   "uf": "MS",
+   "margin_mw": 770.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 551.2,
+   "y": 635.5
+  },
+  {
+   "bus_name": "Imbirussu (IMB)",
+   "uf": "MS",
+   "margin_mw": 770.0,
+   "bonus": false,
+   "voltages": "138/230",
+   "x": 490.9,
+   "y": 678.6
+  },
+  {
+   "bus_name": "Bom Jesus da Lapa (BJL)",
+   "uf": "BA",
+   "margin_mw": 750.0,
+   "bonus": true,
+   "voltages": "69/230",
+   "x": 781.9,
+   "y": 488.1
+  },
+  {
+   "bus_name": "Banabuiú (BNB)",
+   "uf": "CE",
+   "margin_mw": 750.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 895.2,
+   "y": 277.6
+  },
+  {
+   "bus_name": "Barro Alto (STBT)",
+   "uf": "GO",
+   "margin_mw": 730.0,
+   "bonus": false,
+   "voltages": "69/230",
+   "x": 639.6,
+   "y": 535.8
+  },
+  {
+   "bus_name": "Sobral III (SBT)",
+   "uf": "CE",
+   "margin_mw": 710.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 859.8,
+   "y": 235.2
+  },
+  {
+   "bus_name": "Aquiraz II (AQD)",
+   "uf": "CE",
+   "margin_mw": 700.0,
+   "bonus": true,
+   "voltages": "69/230",
+   "x": 908.2,
+   "y": 241.4
+  },
+  {
+   "bus_name": "Cascavel Oeste (CVO)",
+   "uf": "PR",
+   "margin_mw": 700.0,
+   "bonus": false,
+   "voltages": "230/525",
+   "x": 522.0,
+   "y": 796.5
+  },
+  {
+   "bus_name": "Fortaleza II (FZD)",
+   "uf": "CE",
+   "margin_mw": 700.0,
+   "bonus": true,
+   "voltages": "230/500",
+   "x": 904.6,
+   "y": 238.9
+  },
+  {
+   "bus_name": "Morro do Chapéu II - Ourolândia II - C1 (MPD_OUR_C1)",
+   "uf": "BA",
+   "margin_mw": 700.0,
+   "bonus": false,
+   "voltages": "500",
+   "x": 832.5,
+   "y": 435.2
+  },
+  {
+   "bus_name": "Pirapora 2 (PI2)",
+   "uf": "MG",
+   "margin_mw": 675.0,
+   "bonus": true,
+   "voltages": "138/345",
+   "x": 743.1,
+   "y": 594.2
+  },
+  {
+   "bus_name": "Rio Brilhante (RBE)",
+   "uf": "MS",
+   "margin_mw": 640.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 514.7,
+   "y": 704.7
+  },
+  {
+   "bus_name": "Tacaimbó (TAC)",
+   "uf": "PE",
+   "margin_mw": 610.0,
+   "bonus": false,
+   "voltages": "69/230",
+   "x": 963.8,
+   "y": 357.2
+  },
+  {
+   "bus_name": "Água Vermelha (AGV)",
+   "uf": "SP",
+   "margin_mw": 600.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 603.3,
+   "y": 660.5
+  },
+  {
+   "bus_name": "Araraquara (ARA)",
+   "uf": "SP",
+   "margin_mw": 600.0,
+   "bonus": false,
+   "voltages": "440",
+   "x": 658.6,
+   "y": 711.3
+  },
+  {
+   "bus_name": "Baguaçu – Bauru (BAG_BAU)",
+   "uf": "SP",
+   "margin_mw": 600.0,
+   "bonus": false,
+   "voltages": "440",
+   "x": 620.1,
+   "y": 709.3
+  },
+  {
+   "bus_name": "Coxipó (CX)",
+   "uf": "MT",
+   "margin_mw": 600.0,
+   "bonus": false,
+   "voltages": "138/230",
+   "x": 459.1,
+   "y": 549.2
+  },
+  {
+   "bus_name": "GNA II (GNA2)",
+   "uf": "RJ",
+   "margin_mw": 600.0,
+   "bonus": false,
+   "voltages": "500",
+   "x": 841.5,
+   "y": 712.7
+  },
+  {
+   "bus_name": "Cauípe (CPE)",
+   "uf": "CE",
+   "margin_mw": 580.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 896.2,
+   "y": 235.2
+  },
+  {
+   "bus_name": "Ibiapina II (IBD)",
+   "uf": "CE",
+   "margin_mw": 580.0,
+   "bonus": true,
+   "voltages": "69/230",
+   "x": 837.1,
+   "y": 240.6
+  },
+  {
+   "bus_name": "Cuiabá (CB)",
+   "uf": "MT",
+   "margin_mw": 550.0,
+   "bonus": false,
+   "voltages": "500",
+   "x": 462.8,
+   "y": 550.7
+  },
+  {
+   "bus_name": "Marangatu (MRG)",
+   "uf": "PI",
+   "margin_mw": 550.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 830.2,
+   "y": 246.9
+  },
+  {
+   "bus_name": "Adrianópolis (STAD)",
+   "uf": "RJ",
+   "margin_mw": 540.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 778.7,
+   "y": 734.3
+  },
+  {
+   "bus_name": "Boa Vista (BV)",
+   "uf": "RR",
+   "margin_mw": 520.0,
+   "bonus": false,
+   "voltages": "69/230",
+   "x": 338.6,
+   "y": 60.7
+  },
+  {
+   "bus_name": "Jurupari (JRP)",
+   "uf": "PA",
+   "margin_mw": 520.0,
+   "bonus": false,
+   "voltages": "69/230",
+   "x": 541.5,
+   "y": 178.7
+  },
+  {
+   "bus_name": "Arinos 2 - Paracatu 4 - C2 (ARI2_PR4_C2)",
+   "uf": "MG",
+   "margin_mw": 510.0,
+   "bonus": false,
+   "voltages": "500",
+   "x": 700.4,
+   "y": 569.8
+  },
+  {
+   "bus_name": "Buritirama (BTR)",
+   "uf": "BA",
+   "margin_mw": 505.0,
+   "bonus": true,
+   "voltages": "500",
+   "x": 764.5,
+   "y": 416.9
+  },
+  {
+   "bus_name": "Acaraú II (AUD)",
+   "uf": "CE",
+   "margin_mw": 500.0,
+   "bonus": true,
+   "voltages": "69/230",
+   "x": 864.5,
+   "y": 215.1
+  },
+  {
+   "bus_name": "Ceará Mirim II (CID)",
+   "uf": "RN",
+   "margin_mw": 500.0,
+   "bonus": false,
+   "voltages": "500",
+   "x": 983.5,
+   "y": 287.3
+  },
+  {
+   "bus_name": "Icó (ICO)",
+   "uf": "CE",
+   "margin_mw": 500.0,
+   "bonus": true,
+   "voltages": "69/230",
+   "x": 896.0,
+   "y": 306.7
+  },
+  {
+   "bus_name": "Nilo Peçanha (NLP)",
+   "uf": "RJ",
+   "margin_mw": 490.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 768.8,
+   "y": 735.0
+  },
+  {
+   "bus_name": "Boa Esperança (BEA)",
+   "uf": "PI",
+   "margin_mw": 480.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 776.4,
+   "y": 314.9
+  },
+  {
+   "bus_name": "Biguaçu (BIG)",
+   "uf": "SC",
+   "margin_mw": 470.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 644.5,
+   "y": 861.1
+  },
+  {
+   "bus_name": "Macapá III (MCT)",
+   "uf": "AP",
+   "margin_mw": 470.0,
+   "bonus": false,
+   "voltages": "69/230",
+   "x": 582.2,
+   "y": 136.8
+  },
+  {
+   "bus_name": "Russas II (RSD)",
+   "uf": "CE",
+   "margin_mw": 470.0,
+   "bonus": true,
+   "voltages": "69/230",
+   "x": 918.6,
+   "y": 268.3
+  },
+  {
+   "bus_name": "Betim 6 (BET)",
+   "uf": "MG",
+   "margin_mw": 460.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 759.3,
+   "y": 661.4
+  },
+  {
+   "bus_name": "Medeiros Neto II (MND)",
+   "uf": "BA",
+   "margin_mw": 460.0,
+   "bonus": false,
+   "voltages": "500",
+   "x": 862.8,
+   "y": 594.1
+  },
+  {
+   "bus_name": "Quixadá (QXA)",
+   "uf": "CE",
+   "margin_mw": 460.0,
+   "bonus": false,
+   "voltages": "500",
+   "x": 894.8,
+   "y": 268.4
+  },
+  {
+   "bus_name": "Cristino Castro (CNC)",
+   "uf": "PI",
+   "margin_mw": 450.0,
+   "bonus": true,
+   "voltages": "500",
+   "x": 760.4,
+   "y": 370.9
+  },
+  {
+   "bus_name": "Milagres (MLG)",
+   "uf": "CE",
+   "margin_mw": 450.0,
+   "bonus": true,
+   "voltages": "69/230/500",
+   "x": 894.5,
+   "y": 330.3
+  },
+  {
+   "bus_name": "Piripiri (PRI)",
+   "uf": "PI",
+   "margin_mw": 450.0,
+   "bonus": true,
+   "voltages": "138/230",
+   "x": 822.6,
+   "y": 250.8
+  },
+  {
+   "bus_name": "Teresina III (TRT)",
+   "uf": "PI",
+   "margin_mw": 450.0,
+   "bonus": false,
+   "voltages": "69",
+   "x": 798.8,
+   "y": 271.9
+  },
+  {
+   "bus_name": "Candiota 2 (CTA2)",
+   "uf": "RS",
+   "margin_mw": 430.0,
+   "bonus": false,
+   "voltages": "230/525",
+   "x": 518.0,
+   "y": 968.6
+  },
+  {
+   "bus_name": "Araçuaí 2 (ACU2)",
+   "uf": "MG",
+   "margin_mw": 425.0,
+   "bonus": true,
+   "voltages": "138/230",
+   "x": 815.9,
+   "y": 580.9
+  },
+  {
+   "bus_name": "Abdon Batista (ABT)",
+   "uf": "SC",
+   "margin_mw": 420.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 584.8,
+   "y": 863.4
+  },
+  {
+   "bus_name": "Macapá (MCP)",
+   "uf": "AP",
+   "margin_mw": 420.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 583.5,
+   "y": 135.5
+  },
+  {
+   "bus_name": "Nova Iguaçu (NVI)",
+   "uf": "RJ",
+   "margin_mw": 420.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 777.1,
+   "y": 736.6
+  },
+  {
+   "bus_name": "Riachão II (RID)",
+   "uf": "PB",
+   "margin_mw": 410.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 978.9,
+   "y": 309.5
+  },
+  {
+   "bus_name": "Baguaçu (BAG)",
+   "uf": "SP",
+   "margin_mw": 400.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 605.0,
+   "y": 694.3
+  },
+  {
+   "bus_name": "Campina Grande III (CGT)",
+   "uf": "PB",
+   "margin_mw": 400.0,
+   "bonus": false,
+   "voltages": "230/500",
+   "x": 970.0,
+   "y": 328.9
+  },
+  {
+   "bus_name": "Getulina (GET)",
+   "uf": "SP",
+   "margin_mw": 400.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 616.3,
+   "y": 713.0
+  },
+  {
+   "bus_name": "Londrina (LON)",
+   "uf": "PR",
+   "margin_mw": 400.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 583.0,
+   "y": 755.3
+  },
+  {
+   "bus_name": "Mirassol 2 (MIR2)",
+   "uf": "SP",
+   "margin_mw": 400.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 624.9,
+   "y": 687.0
+  },
+  {
+   "bus_name": "Nova Porto Primavera (NPP)",
+   "uf": "SP",
+   "margin_mw": 400.0,
+   "bonus": false,
+   "voltages": "230/440",
+   "x": 536.5,
+   "y": 729.6
+  },
+  {
+   "bus_name": "Pimenta Bueno (PB)",
+   "uf": "RO",
+   "margin_mw": 400.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 327.9,
+   "y": 443.4
+  },
+  {
+   "bus_name": "Povo Novo (PNO)",
+   "uf": "RS",
+   "margin_mw": 400.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 552.4,
+   "y": 978.0
+  },
+  {
+   "bus_name": "Santa Luzia II (SLD)",
+   "uf": "PB",
+   "margin_mw": 400.0,
+   "bonus": true,
+   "voltages": "500",
+   "x": 944.4,
+   "y": 319.9
+  },
+  {
+   "bus_name": "Morro Agudo (MAT)",
+   "uf": "SP",
+   "margin_mw": 390.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 659.2,
+   "y": 686.9
+  },
+  {
+   "bus_name": "São Gonçalo do Pará (SGPA)",
+   "uf": "MG",
+   "margin_mw": 380.0,
+   "bonus": false,
+   "voltages": "500",
+   "x": 743.9,
+   "y": 666.1
+  },
+  {
+   "bus_name": "Campos Novos (CNO)",
+   "uf": "SC",
+   "margin_mw": 370.0,
+   "bonus": false,
+   "voltages": "138/230",
+   "x": 576.0,
+   "y": 862.5
+  },
+  {
+   "bus_name": "São João do Piauí II (SJII)",
+   "uf": "PI",
+   "margin_mw": 370.0,
+   "bonus": true,
+   "voltages": "500",
+   "x": 802.4,
+   "y": 355.4
+  },
+  {
+   "bus_name": "Zona Oeste (STZO)",
+   "uf": "RJ",
+   "margin_mw": 370.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 772.6,
+   "y": 739.8
+  },
+  {
+   "bus_name": "Coremas (CMA)",
+   "uf": "PB",
+   "margin_mw": 360.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 919.6,
+   "y": 322.6
+  },
+  {
+   "bus_name": "Brotas de Macaúbas (BMC)",
+   "uf": "BA",
+   "margin_mw": 350.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 807.6,
+   "y": 461.9
+  },
+  {
+   "bus_name": "Brotas de Macaúbas - Gentio do Ouro II - C1 (BMC_GDO_C1)",
+   "uf": "BA",
+   "margin_mw": 350.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 803.5,
+   "y": 448.3
+  },
+  {
+   "bus_name": "Charqueadas 3 (CHA3)",
+   "uf": "RS",
+   "margin_mw": 350.0,
+   "bonus": false,
+   "voltages": "69/230",
+   "x": 571.3,
+   "y": 926.2
+  },
+  {
+   "bus_name": "Irecê (IRE)",
+   "uf": "BA",
+   "margin_mw": 350.0,
+   "bonus": true,
+   "voltages": "69/138/230",
+   "x": 821.3,
+   "y": 435.6
+  },
+  {
+   "bus_name": "Ivinhema 2 (IVI2)",
+   "uf": "MS",
+   "margin_mw": 350.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 520.9,
+   "y": 727.8
+  },
+  {
+   "bus_name": "Lages (LAG)",
+   "uf": "SC",
+   "margin_mw": 350.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 603.6,
+   "y": 868.2
+  },
+  {
+   "bus_name": "Maracanaú II (MND)",
+   "uf": "CE",
+   "margin_mw": 350.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 902.5,
+   "y": 240.0
+  },
+  {
+   "bus_name": "Palmeiras (PAL)",
+   "uf": "GO",
+   "margin_mw": 350.0,
+   "bonus": false,
+   "voltages": "69/230",
+   "x": 613.7,
+   "y": 579.6
+  },
+  {
+   "bus_name": "Barreiras (BRA)",
+   "uf": "BA",
+   "margin_mw": 340.0,
+   "bonus": true,
+   "voltages": "69/138/230",
+   "x": 741.2,
+   "y": 457.3
+  },
+  {
+   "bus_name": "Barreiras II (BRD)",
+   "uf": "BA",
+   "margin_mw": 340.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 744.6,
+   "y": 458.3
+  },
+  {
+   "bus_name": "Picos (PIC)",
+   "uf": "PI",
+   "margin_mw": 340.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 831.3,
+   "y": 325.1
+  },
+  {
+   "bus_name": "Sinop (SP)",
+   "uf": "MT",
+   "margin_mw": 340.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 471.2,
+   "y": 453.3
+  },
+  {
+   "bus_name": "Jeremoabo (JER)",
+   "uf": "BA",
+   "margin_mw": 310.0,
+   "bonus": false,
+   "voltages": "500",
+   "x": 910.8,
+   "y": 405.4
+  },
+  {
+   "bus_name": "Jaguaruana II (JGD)",
+   "uf": "CE",
+   "margin_mw": 310.0,
+   "bonus": true,
+   "voltages": "230/500",
+   "x": 926.6,
+   "y": 267.7
+  },
+  {
+   "bus_name": "Livramento 3 (LIV3)",
+   "uf": "RS",
+   "margin_mw": 310.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 465.3,
+   "y": 947.9
+  },
+  {
+   "bus_name": "Três Marias (TMSE)",
+   "uf": "MG",
+   "margin_mw": 310.0,
+   "bonus": true,
+   "voltages": "138/345",
+   "x": 733.2,
+   "y": 617.2
+  },
+  {
+   "bus_name": "Várzea da Palma 1 (VPAL)",
+   "uf": "MG",
+   "margin_mw": 310.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 746.5,
+   "y": 600.9
+  },
+  {
+   "bus_name": "Floresta II (FTD)",
+   "uf": "PE",
+   "margin_mw": 300.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 909.7,
+   "y": 368.2
+  },
+  {
+   "bus_name": "Tabocas do Brejo Velho (TBV)",
+   "uf": "BA",
+   "margin_mw": 300.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 762.6,
+   "y": 469.1
+  },
+  {
+   "bus_name": "Itá (YTA)",
+   "uf": "SC",
+   "margin_mw": 300.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 550.8,
+   "y": 855.5
+  },
+  {
+   "bus_name": "Monte Verde (MVR)",
+   "uf": "RN",
+   "margin_mw": 295.0,
+   "bonus": false,
+   "voltages": "500",
+   "x": 964.0,
+   "y": 281.3
+  },
+  {
+   "bus_name": "Vila Maria (VMT)",
+   "uf": "RS",
+   "margin_mw": 290.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 559.0,
+   "y": 889.2
+  },
+  {
+   "bus_name": "Mauá III (MT)",
+   "uf": "AM",
+   "margin_mw": 280.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 358.7,
+   "y": 220.1
+  },
+  {
+   "bus_name": "Brasília Sul (STBS)",
+   "uf": "DF",
+   "margin_mw": 280.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 661.5,
+   "y": 555.3
+  },
+  {
+   "bus_name": "Rio Largo II (RLD)",
+   "uf": "AL",
+   "margin_mw": 270.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 973.6,
+   "y": 388.1
+  },
+  {
+   "bus_name": "Vespasiano 2 (VPND)",
+   "uf": "MG",
+   "margin_mw": 270.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 767.7,
+   "y": 657.3
+  },
+  {
+   "bus_name": "Zebu II (ZBU)",
+   "uf": "AL",
+   "margin_mw": 270.0,
+   "bonus": true,
+   "voltages": "69/230",
+   "x": 913.3,
+   "y": 384.2
+  },
+  {
+   "bus_name": "Gaspar 2 (GAS2)",
+   "uf": "SC",
+   "margin_mw": 260.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 637.1,
+   "y": 845.0
+  },
+  {
+   "bus_name": "Ibiapina II - Sobral II - C1 (IBD_SBD_C1)",
+   "uf": "CE",
+   "margin_mw": 260.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 847.4,
+   "y": 238.0
+  },
+  {
+   "bus_name": "Castro Norte (CRN)",
+   "uf": "PR",
+   "margin_mw": 250.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 610.7,
+   "y": 789.8
+  },
+  {
+   "bus_name": "Itagiba (IGB)",
+   "uf": "BA",
+   "margin_mw": 250.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 874.7,
+   "y": 512.5
+  },
+  {
+   "bus_name": "Itapaci (ITP)",
+   "uf": "GO",
+   "margin_mw": 250.0,
+   "bonus": false,
+   "voltages": "69/230",
+   "x": 624.3,
+   "y": 531.2
+  },
+  {
+   "bus_name": "Itararé II (ITR2)",
+   "uf": "SP",
+   "margin_mw": 250.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 629.7,
+   "y": 772.1
+  },
+  {
+   "bus_name": "Campo Mourão (CMO)",
+   "uf": "PR",
+   "margin_mw": 240.0,
+   "bonus": false,
+   "voltages": "138/230",
+   "x": 551.7,
+   "y": 771.4
+  },
+  {
+   "bus_name": "Irati Norte (IRN)",
+   "uf": "PR",
+   "margin_mw": 240.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 595.2,
+   "y": 805.4
+  },
+  {
+   "bus_name": "Leopoldina 2 (LPD2)",
+   "uf": "MG",
+   "margin_mw": 240.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 798.6,
+   "y": 702.7
+  },
+  {
+   "bus_name": "Várzea da Palma 1 – Três Marias (VPAL_TMSE_C1)",
+   "uf": "MG",
+   "margin_mw": 240.0,
+   "bonus": false,
+   "voltages": "345",
+   "x": 739.9,
+   "y": 609.0
+  },
+  {
+   "bus_name": "Eunápolis (ENP)",
+   "uf": "BA",
+   "margin_mw": 230.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 878.9,
+   "y": 567.9
+  },
+  {
+   "bus_name": "Joinville Norte (JNO)",
+   "uf": "SC",
+   "margin_mw": 230.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 640.2,
+   "y": 828.6
+  },
+  {
+   "bus_name": "Joinville Sul (JSU)",
+   "uf": "SC",
+   "margin_mw": 230.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 639.0,
+   "y": 832.3
+  },
+  {
+   "bus_name": "Jauru (JU)",
+   "uf": "MT",
+   "margin_mw": 230.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 386.8,
+   "y": 542.7
+  },
+  {
+   "bus_name": "Pirineus (PRS)",
+   "uf": "GO",
+   "margin_mw": 230.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 641.1,
+   "y": 569.1
+  },
+  {
+   "bus_name": "Quixeré (QXR)",
+   "uf": "CE",
+   "margin_mw": 225.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 923.9,
+   "y": 270.5
+  },
+  {
+   "bus_name": "Camaquã 3 (CAM3)",
+   "uf": "RS",
+   "margin_mw": 220.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 566.0,
+   "y": 948.5
+  },
+  {
+   "bus_name": "Camaçari II (CMD)",
+   "uf": "BA",
+   "margin_mw": 210.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 909.7,
+   "y": 470.0
+  },
+  {
+   "bus_name": "Jacaracanga (JCR)",
+   "uf": "BA",
+   "margin_mw": 210.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 906.1,
+   "y": 472.1
+  },
+  {
+   "bus_name": "Jorge Teixeira (JT)",
+   "uf": "AM",
+   "margin_mw": 210.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 359.6,
+   "y": 217.5
+  },
+  {
+   "bus_name": "Porto do Açu (PDA)",
+   "uf": "RJ",
+   "margin_mw": 210.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 838.7,
+   "y": 712.9
+  },
+  {
+   "bus_name": "Itabuna III (IBT)",
+   "uf": "BA",
+   "margin_mw": 205.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 886.0,
+   "y": 528.9
+  },
+  {
+   "bus_name": "Cerquilho III (CRQ)",
+   "uf": "SP",
+   "margin_mw": 200.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 669.0,
+   "y": 746.8
+  },
+  {
+   "bus_name": "Londrina COPEL (LNA)",
+   "uf": "PR",
+   "margin_mw": 200.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 583.0,
+   "y": 755.3
+  },
+  {
+   "bus_name": "Nilo Peçanha – Santa Cabeça (NLP_SCA)",
+   "uf": "RJ",
+   "margin_mw": 200.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 755.2,
+   "y": 734.5
+  },
+  {
+   "bus_name": "Viana (STVA)",
+   "uf": "ES",
+   "margin_mw": 200.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 856.3,
+   "y": 673.9
+  },
+  {
+   "bus_name": "Suape II (SUD)",
+   "uf": "PE",
+   "margin_mw": 200.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 993.8,
+   "y": 358.8
+  },
+  {
+   "bus_name": "Brumado II (BDD)",
+   "uf": "BA",
+   "margin_mw": 190.0,
+   "bonus": true,
+   "voltages": "138/230",
+   "x": 825.7,
+   "y": 512.0
+  },
+  {
+   "bus_name": "Chapada I (CHP1)",
+   "uf": "PI",
+   "margin_mw": 190.0,
+   "bonus": true,
+   "voltages": "138/230",
+   "x": 849.2,
+   "y": 337.0
+  },
+  {
+   "bus_name": "Miracema (MC)",
+   "uf": "TO",
+   "margin_mw": 190.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 649.9,
+   "y": 389.1
+  },
+  {
+   "bus_name": "Santa Rita II (SRD)",
+   "uf": "PB",
+   "margin_mw": 190.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 994.8,
+   "y": 326.3
+  },
+  {
+   "bus_name": "João Câmara II (JCD)",
+   "uf": "RN",
+   "margin_mw": 185.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 972.7,
+   "y": 277.5
+  },
+  {
+   "bus_name": "Alex (ALX)",
+   "uf": "CE",
+   "margin_mw": 180.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 919.3,
+   "y": 276.7
+  },
+  {
+   "bus_name": "Cascavel Norte (CVN)",
+   "uf": "PR",
+   "margin_mw": 180.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 524.2,
+   "y": 792.7
+  },
+  {
+   "bus_name": "Encruzo Novo (ENO)",
+   "uf": "MA",
+   "margin_mw": 180.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 718.0,
+   "y": 196.4
+  },
+  {
+   "bus_name": "Silves (SIL)",
+   "uf": "AM",
+   "margin_mw": 180.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 400.9,
+   "y": 209.3
+  },
+  {
+   "bus_name": "Taquaruçu (TAQ)",
+   "uf": "SP",
+   "margin_mw": 180.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 561.1,
+   "y": 731.0
+  },
+  {
+   "bus_name": "Catu (CTU)",
+   "uf": "BA",
+   "margin_mw": 175.0,
+   "bonus": false,
+   "voltages": "69/230",
+   "x": 909.2,
+   "y": 464.2
+  },
+  {
+   "bus_name": "Delmiro Gouveia (DMG)",
+   "uf": "CE",
+   "margin_mw": 175.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 905.3,
+   "y": 237.7
+  },
+  {
+   "bus_name": "Polo (PLO)",
+   "uf": "BA",
+   "margin_mw": 175.0,
+   "bonus": false,
+   "voltages": "69/230",
+   "x": 911.5,
+   "y": 471.1
+  },
+  {
+   "bus_name": "Tauá II (TAD)",
+   "uf": "CE",
+   "margin_mw": 170.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 860.4,
+   "y": 295.9
+  },
+  {
+   "bus_name": "Piratininga (PIR)",
+   "uf": "SP",
+   "margin_mw": 160.0,
+   "bonus": false,
+   "voltages": "88/230",
+   "x": 697.0,
+   "y": 761.5
+  },
+  {
+   "bus_name": "Chapadinha II (CD)",
+   "uf": "MA",
+   "margin_mw": 150.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 780.5,
+   "y": 237.9
+  },
+  {
+   "bus_name": "Eliseu Martins (ELM)",
+   "uf": "PI",
+   "margin_mw": 150.0,
+   "bonus": true,
+   "voltages": "69/230",
+   "x": 773.7,
+   "y": 351.1
+  },
+  {
+   "bus_name": "Guaíba 3 (GUA3)",
+   "uf": "RS",
+   "margin_mw": 150.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 573.1,
+   "y": 928.5
+  },
+  {
+   "bus_name": "Juba (JBA)",
+   "uf": "MT",
+   "margin_mw": 150.0,
+   "bonus": false,
+   "voltages": "138/230",
+   "x": 410.1,
+   "y": 528.3
+  },
+  {
+   "bus_name": "Mossoró II (MSD)",
+   "uf": "RN",
+   "margin_mw": 150.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 935.1,
+   "y": 273.5
+  },
+  {
+   "bus_name": "Natal III (NTT)",
+   "uf": "RN",
+   "margin_mw": 150.0,
+   "bonus": false,
+   "voltages": "69",
+   "x": 986.9,
+   "y": 292.5
+  },
+  {
+   "bus_name": "Oeste (OES)",
+   "uf": "SP",
+   "margin_mw": 150.0,
+   "bonus": false,
+   "voltages": "88",
+   "x": 678.2,
+   "y": 754.9
+  },
+  {
+   "bus_name": "Paranaíba (PRB)",
+   "uf": "GO",
+   "margin_mw": 150.0,
+   "bonus": false,
+   "voltages": "69",
+   "x": 632.3,
+   "y": 621.4
+  },
+  {
+   "bus_name": "Paranavaí Norte (PRN)",
+   "uf": "PR",
+   "margin_mw": 150.0,
+   "bonus": false,
+   "voltages": "138/230",
+   "x": 549.7,
+   "y": 744.0
+  },
+  {
+   "bus_name": "Cruz Alta 2 (CAL2)",
+   "uf": "RS",
+   "margin_mw": 140.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 519.1,
+   "y": 892.1
+  },
+  {
+   "bus_name": "Teixeira de Freitas II (TFD)",
+   "uf": "BA",
+   "margin_mw": 140.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 874.3,
+   "y": 600.3
+  },
+  {
+   "bus_name": "Xavantes (XAV)",
+   "uf": "GO",
+   "margin_mw": 140.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 631.1,
+   "y": 574.2
+  },
+  {
+   "bus_name": "Funil (FNL)",
+   "uf": "BA",
+   "margin_mw": 130.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 881.1,
+   "y": 512.5
+  },
+  {
+   "bus_name": "Ribeiro Gonçalves (RGV)",
+   "uf": "PI",
+   "margin_mw": 130.0,
+   "bonus": false,
+   "voltages": "69/230/500",
+   "x": 734.5,
+   "y": 338.8
+  },
+  {
+   "bus_name": "São José (STSJ)",
+   "uf": "RJ",
+   "margin_mw": 130.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 782.4,
+   "y": 736.5
+  },
+  {
+   "bus_name": "Bom Jesus II (BJE)",
+   "uf": "PI",
+   "margin_mw": 125.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 757.4,
+   "y": 377.5
+  },
+  {
+   "bus_name": "Igaporã II (IGD)",
+   "uf": "BA",
+   "margin_mw": 125.0,
+   "bonus": true,
+   "voltages": "69/230",
+   "x": 800.4,
+   "y": 507.1
+  },
+  {
+   "bus_name": "Caraguatatuba (CAU)",
+   "uf": "SP",
+   "margin_mw": 120.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 727.5,
+   "y": 759.8
+  },
+  {
+   "bus_name": "Caraúbas II (CBD)",
+   "uf": "RN",
+   "margin_mw": 120.0,
+   "bonus": false,
+   "voltages": "69",
+   "x": 931.0,
+   "y": 288.5
+  },
+  {
+   "bus_name": "Dardanelos (DD)",
+   "uf": "MT",
+   "margin_mw": 120.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 371.1,
+   "y": 405.3
+  },
+  {
+   "bus_name": "Mossoró IV (MSQ)",
+   "uf": "RN",
+   "margin_mw": 120.0,
+   "bonus": true,
+   "voltages": "69/230",
+   "x": 936.6,
+   "y": 265.8
+  },
+  {
+   "bus_name": "Rio Grande II (RGD)",
+   "uf": "BA",
+   "margin_mw": 120.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 727.3,
+   "y": 475.9
+  },
+  {
+   "bus_name": "João Neiva 2 (SJND)",
+   "uf": "ES",
+   "margin_mw": 120.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 857.4,
+   "y": 658.2
+  },
+  {
+   "bus_name": "Campos (STCM)",
+   "uf": "RJ",
+   "margin_mw": 120.0,
+   "bonus": false,
+   "voltages": "138/345",
+   "x": 833.3,
+   "y": 709.4
+  },
+  {
+   "bus_name": "Trindade (TRI)",
+   "uf": "GO",
+   "margin_mw": 120.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 623.0,
+   "y": 575.3
+  },
+  {
+   "bus_name": "Olindina (OLD)",
+   "uf": "BA",
+   "margin_mw": 115.0,
+   "bonus": false,
+   "voltages": "69/230/500",
+   "x": 908.7,
+   "y": 435.8
+  },
+  {
+   "bus_name": "Firminópolis (FIR)",
+   "uf": "GO",
+   "margin_mw": 110.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 603.8,
+   "y": 574.5
+  },
+  {
+   "bus_name": "Janaúba 3 – Montes Claros 2 (JBA3_MCL2)",
+   "uf": "MG",
+   "margin_mw": 110.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 776.2,
+   "y": 566.8
+  },
+  {
+   "bus_name": "Maringá (MGA)",
+   "uf": "PR",
+   "margin_mw": 110.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 561.4,
+   "y": 754.9
+  },
+  {
+   "bus_name": "Paranaíta (PRT)",
+   "uf": "MT",
+   "margin_mw": 110.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 437.5,
+   "y": 384.1
+  },
+  {
+   "bus_name": "Quirinópolis 2 (QUI2)",
+   "uf": "GO",
+   "margin_mw": 110.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 597.4,
+   "y": 624.3
+  },
+  {
+   "bus_name": "Brasília Leste (STBL)",
+   "uf": "DF",
+   "margin_mw": 110.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 670.7,
+   "y": 554.0
+  },
+  {
+   "bus_name": "Tomé-Açu (TE)",
+   "uf": "PA",
+   "margin_mw": 110.0,
+   "bonus": false,
+   "voltages": "138/230",
+   "x": 659.6,
+   "y": 200.0
+  },
+  {
+   "bus_name": "Tapajós II (TJ)",
+   "uf": "PA",
+   "margin_mw": 110.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 492.8,
+   "y": 206.9
+  },
+  {
+   "bus_name": "Campo Formoso (CFO)",
+   "uf": "BA",
+   "margin_mw": 100.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 851.8,
+   "y": 416.5
+  },
+  {
+   "bus_name": "Capivari do Sul (CPS)",
+   "uf": "RS",
+   "margin_mw": 100.0,
+   "bonus": false,
+   "voltages": "138/230",
+   "x": 601.0,
+   "y": 930.0
+  },
+  {
+   "bus_name": "Verona (STVE)",
+   "uf": "ES",
+   "margin_mw": 100.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 855.8,
+   "y": 631.1
+  },
+  {
+   "bus_name": "Viamão 3 (VIA3)",
+   "uf": "RS",
+   "margin_mw": 100.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 585.0,
+   "y": 928.2
+  },
+  {
+   "bus_name": "Açu II (ACD)",
+   "uf": "RN",
+   "margin_mw": 90.0,
+   "bonus": false,
+   "voltages": "69/138/230",
+   "x": 946.3,
+   "y": 285.2
+  },
+  {
+   "bus_name": "Bacabeira (BCB)",
+   "uf": "MA",
+   "margin_mw": 90.0,
+   "bonus": false,
+   "voltages": "500",
+   "x": 757.7,
+   "y": 217.5
+  },
+  {
+   "bus_name": "Crato II (CTD)",
+   "uf": "CE",
+   "margin_mw": 90.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 883.2,
+   "y": 327.2
+  },
+  {
+   "bus_name": "Forquilhinha (FHA)",
+   "uf": "SC",
+   "margin_mw": 90.0,
+   "bonus": false,
+   "voltages": "69",
+   "x": 624.3,
+   "y": 894.4
+  },
+  {
+   "bus_name": "Itaguaçu (IGU)",
+   "uf": "GO",
+   "margin_mw": 90.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 595.1,
+   "y": 638.1
+  },
+  {
+   "bus_name": "Jaraguá do Sul (JSA)",
+   "uf": "SC",
+   "margin_mw": 90.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 633.5,
+   "y": 833.5
+  },
+  {
+   "bus_name": "Planalto (PLA)",
+   "uf": "GO",
+   "margin_mw": 90.0,
+   "bonus": false,
+   "voltages": "69",
+   "x": 631.8,
+   "y": 606.7
+  },
+  {
+   "bus_name": "Pinhalzinho (PZO)",
+   "uf": "SC",
+   "margin_mw": 90.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 536.2,
+   "y": 843.9
+  },
+  {
+   "bus_name": "Quinta (QUI)",
+   "uf": "RS",
+   "margin_mw": 90.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 554.3,
+   "y": 981.9
+  },
+  {
+   "bus_name": "Rio Novo do Sul (SRNS)",
+   "uf": "ES",
+   "margin_mw": 90.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 844.9,
+   "y": 686.7
+  },
+  {
+   "bus_name": "Serra da Mesa (STSM)",
+   "uf": "GO",
+   "margin_mw": 90.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 655.5,
+   "y": 501.8
+  },
+  {
+   "bus_name": "Cachoeira Dourada (UCD)",
+   "uf": "GO",
+   "margin_mw": 90.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 625.3,
+   "y": 624.8
+  },
+  {
+   "bus_name": "Arcoverde II (AED)",
+   "uf": "PE",
+   "margin_mw": 80.0,
+   "bonus": false,
+   "voltages": "69",
+   "x": 943.9,
+   "y": 361.6
+  },
+  {
+   "bus_name": "Brasnorte (BN)",
+   "uf": "MT",
+   "margin_mw": 80.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 406.2,
+   "y": 476.8
+  },
+  {
+   "bus_name": "Baixada Santista (BSA)",
+   "uf": "SP",
+   "margin_mw": 80.0,
+   "bonus": false,
+   "voltages": "88",
+   "x": 703.5,
+   "y": 765.7
+  },
+  {
+   "bus_name": "Foz do Iguaçu Norte (FIN)",
+   "uf": "PR",
+   "margin_mw": 80.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 496.2,
+   "y": 808.6
+  },
+  {
+   "bus_name": "Lucas do Rio Verde (LC)",
+   "uf": "MT",
+   "margin_mw": 80.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 460.8,
+   "y": 480.3
+  },
+  {
+   "bus_name": "Realeza Sul (RZS)",
+   "uf": "PR",
+   "margin_mw": 80.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 522.4,
+   "y": 816.3
+  },
+  {
+   "bus_name": "Santa Cabeça (SCA)",
+   "uf": "SP",
+   "margin_mw": 80.0,
+   "bonus": false,
+   "voltages": "88",
+   "x": 741.6,
+   "y": 734.0
+  },
+  {
+   "bus_name": "Suape III (SUT)",
+   "uf": "PE",
+   "margin_mw": 80.0,
+   "bonus": false,
+   "voltages": "69/230",
+   "x": 994.6,
+   "y": 359.0
+  },
+  {
+   "bus_name": "UTE Uruguaiana (UTUR)",
+   "uf": "RS",
+   "margin_mw": 80.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 440.4,
+   "y": 923.1
+  },
+  {
+   "bus_name": "Vilhena (VN)",
+   "uf": "RO",
+   "margin_mw": 80.0,
+   "bonus": false,
+   "voltages": "69",
+   "x": 350.2,
+   "y": 472.6
+  },
+  {
+   "bus_name": "Vila do Conde (VC)",
+   "uf": "PA",
+   "margin_mw": 75.0,
+   "bonus": false,
+   "voltages": "69",
+   "x": 644.5,
+   "y": 179.4
+  },
+  {
+   "bus_name": "Garanhuns II (GRD)",
+   "uf": "PE",
+   "margin_mw": 72.0,
+   "bonus": false,
+   "voltages": "69",
+   "x": 959.2,
+   "y": 371.7
+  },
+  {
+   "bus_name": "João Pessoa II (JPD)",
+   "uf": "PB",
+   "margin_mw": 65.0,
+   "bonus": false,
+   "voltages": "69",
+   "x": 996.9,
+   "y": 327.9
+  },
+  {
+   "bus_name": "Jataí (JAT)",
+   "uf": "GO",
+   "margin_mw": 60.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 558.8,
+   "y": 605.9
+  },
+  {
+   "bus_name": "Mineiros TER (MINT)",
+   "uf": "GO",
+   "margin_mw": 60.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 541.6,
+   "y": 601.9
+  },
+  {
+   "bus_name": "Rio das Éguas (RDE)",
+   "uf": "BA",
+   "margin_mw": 50.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 709.8,
+   "y": 502.5
+  },
+  {
+   "bus_name": "Rio Formoso II (RFD)",
+   "uf": "BA",
+   "margin_mw": 50.0,
+   "bonus": true,
+   "voltages": "138/230",
+   "x": 717.4,
+   "y": 521.7
+  },
+  {
+   "bus_name": "Senhor do Bonfim II (SBF)",
+   "uf": "BA",
+   "margin_mw": 50.0,
+   "bonus": true,
+   "voltages": "138/230",
+   "x": 862.6,
+   "y": 412.8
+  },
+  {
+   "bus_name": "Tacaratu (TAT)",
+   "uf": "PE",
+   "margin_mw": 50.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 915.1,
+   "y": 376.4
+  },
+  {
+   "bus_name": "Avaré Nova (AVN)",
+   "uf": "SP",
+   "margin_mw": 40.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 639.4,
+   "y": 744.8
+  },
+  {
+   "bus_name": "Jaboatão II (JBD)",
+   "uf": "PE",
+   "margin_mw": 40.0,
+   "bonus": false,
+   "voltages": "69",
+   "x": 995.4,
+   "y": 353.2
+  },
+  {
+   "bus_name": "Rio Branco I (RB)",
+   "uf": "AC",
+   "margin_mw": 40.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 159.6,
+   "y": 401.4
+  },
+  {
+   "bus_name": "Santa Maria (SR)",
+   "uf": "PA",
+   "margin_mw": 40.0,
+   "bonus": false,
+   "voltages": "69",
+   "x": 674.2,
+   "y": 173.4
+  },
+  {
+   "bus_name": "Santa Cruz II (STD)",
+   "uf": "RN",
+   "margin_mw": 16.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 969.3,
+   "y": 302.4
+  },
+  {
+   "bus_name": "Abaiara (ABA)",
+   "uf": "CE",
+   "margin_mw": 0.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 893.7,
+   "y": 332.5
+  },
+  {
+   "bus_name": "Açu III (ACT)",
+   "uf": "RN",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "230/500",
+   "x": 943.2,
+   "y": 284.8
+  },
+  {
+   "bus_name": "Bom Nome II (BND)",
+   "uf": "PE",
+   "margin_mw": 0.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 902.5,
+   "y": 350.3
+  },
+  {
+   "bus_name": "Chapada II (CHP2)",
+   "uf": "PI",
+   "margin_mw": 0.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 848.1,
+   "y": 334.7
+  },
+  {
+   "bus_name": "Chapada III (CHP3)",
+   "uf": "PI",
+   "margin_mw": 0.0,
+   "bonus": true,
+   "voltages": "230",
+   "x": 850.0,
+   "y": 332.5
+  },
+  {
+   "bus_name": "Currais Novos II (CRN)",
+   "uf": "RN",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "69/230",
+   "x": 955.6,
+   "y": 302.9
+  },
+  {
+   "bus_name": "Castilho 3 (CST3)",
+   "uf": "SP",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 572.1,
+   "y": 687.8
+  },
+  {
+   "bus_name": "Cotegipe (CTG)",
+   "uf": "BA",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 907.7,
+   "y": 474.6
+  },
+  {
+   "bus_name": "Dracena (DRA)",
+   "uf": "SP",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 571.7,
+   "y": 705.1
+  },
+  {
+   "bus_name": "Itapebi (ITP)",
+   "uf": "BA",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 878.0,
+   "y": 558.2
+  },
+  {
+   "bus_name": "João Câmara III (JCT)",
+   "uf": "RN",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "138/230",
+   "x": 972.4,
+   "y": 279.6
+  },
+  {
+   "bus_name": "Jorge Lacerda A (JLA)",
+   "uf": "SC",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "69",
+   "x": 638.5,
+   "y": 886.5
+  },
+  {
+   "bus_name": "Jorge Lacerda B (JLB)",
+   "uf": "SC",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 638.4,
+   "y": 886.6
+  },
+  {
+   "bus_name": "Joinville (JOI)",
+   "uf": "SC",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "69",
+   "x": 640.6,
+   "y": 829.7
+  },
+  {
+   "bus_name": "Lagoa do Carro (LAC)",
+   "uf": "PE",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 986.4,
+   "y": 344.9
+  },
+  {
+   "bus_name": "Lagoa Nova II (LND)",
+   "uf": "RN",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "69/230",
+   "x": 956.1,
+   "y": 297.5
+  },
+  {
+   "bus_name": "Lorena (LOR)",
+   "uf": "SP",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 737.6,
+   "y": 736.9
+  },
+  {
+   "bus_name": "Montes Claros 2 (MCL2)",
+   "uf": "MG",
+   "margin_mw": 0.0,
+   "bonus": true,
+   "voltages": "138/345",
+   "x": 769.8,
+   "y": 576.6
+  },
+  {
+   "bus_name": "Morada Nova (MNV)",
+   "uf": "CE",
+   "margin_mw": 0.0,
+   "bonus": true,
+   "voltages": "230/500",
+   "x": 906.3,
+   "y": 272.2
+  },
+  {
+   "bus_name": "Mussuré II (MRD)",
+   "uf": "PB",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 997.8,
+   "y": 327.0
+  },
+  {
+   "bus_name": "Mauriti II (MTD)",
+   "uf": "CE",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 900.1,
+   "y": 332.7
+  },
+  {
+   "bus_name": "Osorio 2 (OSO2)",
+   "uf": "RS",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 604.1,
+   "y": 924.5
+  },
+  {
+   "bus_name": "Osorio 3 (OSO3)",
+   "uf": "RS",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 604.1,
+   "y": 924.8
+  },
+  {
+   "bus_name": "Paulo Afonso III-A (PAF)",
+   "uf": "BA",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 913.5,
+   "y": 385.4
+  },
+  {
+   "bus_name": "Parnaíba III (PBT)",
+   "uf": "PI",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 822.4,
+   "y": 220.2
+  },
+  {
+   "bus_name": "Pacatuba (PCB)",
+   "uf": "CE",
+   "margin_mw": 0.0,
+   "bonus": true,
+   "voltages": "230/500",
+   "x": 904.6,
+   "y": 240.6
+  },
+  {
+   "bus_name": "Pau Ferro (PFE)",
+   "uf": "PE",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 994.5,
+   "y": 344.8
+  },
+  {
+   "bus_name": "Passo Fundo (PFU)",
+   "uf": "RS",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 542.8,
+   "y": 861.1
+  },
+  {
+   "bus_name": "Paraíso (PRS)",
+   "uf": "RN",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 969.4,
+   "y": 302.1
+  },
+  {
+   "bus_name": "Porto Velho (PV)",
+   "uf": "RO",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "69",
+   "x": 259.5,
+   "y": 369.5
+  },
+  {
+   "bus_name": "Simplice (SMP)",
+   "uf": "RN",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 953.0,
+   "y": 291.1
+  },
+  {
+   "bus_name": "Cachoeira Paulista (STCH)",
+   "uf": "SP",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 738.9,
+   "y": 733.4
+  },
+  {
+   "bus_name": "Três Irmãos (TRI)",
+   "uf": "SP",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "138",
+   "x": 578.9,
+   "y": 681.9
+  },
+  {
+   "bus_name": "Touros (TRS)",
+   "uf": "RN",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "230",
+   "x": 978.3,
+   "y": 274.4
+  },
+  {
+   "bus_name": "Luiz Gonzaga (ULG)",
+   "uf": "PE",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "500",
+   "x": 910.7,
+   "y": 378.6
+  },
+  {
+   "bus_name": "Xingo (XGO)",
+   "uf": "AL",
+   "margin_mw": 0.0,
+   "bonus": false,
+   "voltages": "500",
+   "x": 923.7,
+   "y": 391.5
+  }
+ ]
+}

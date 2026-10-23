@@ -1,0 +1,152 @@
+{
+ "title": "Cada R$ 1.000/kW de capex soma R$ 0,17 mi ao lance de equilíbrio; o incentivo da SUDENE tira R$ 0,05 mi no Nordeste",
+ "subtitle": "Receita fixa de equilíbrio por capex total (R$ mi/MW/ano)",
+ "source": "Fonte: EPE (PDE 2035); BNDES (2026); DEE África do Sul (2025); BNEF (2025); TrendForce (2026)",
+ "note": "Nota: retorno real de 12%, 60% de dívida, TUST da EPE. Barras escuras: faixa da EPE de dez/2024. Faixa cinza: capex da Rodada 3 da África do Sul, ao câmbio dos lances.",
+ "data": [
+  {
+   "view": "epe",
+   "capex": 3.0,
+   "be": 0.771,
+   "epe": false
+  },
+  {
+   "view": "epe",
+   "capex": 4.0,
+   "be": 0.945,
+   "epe": false
+  },
+  {
+   "view": "epe",
+   "capex": 5.0,
+   "be": 1.119,
+   "epe": true
+  },
+  {
+   "view": "epe",
+   "capex": 6.0,
+   "be": 1.294,
+   "epe": true
+  },
+  {
+   "view": "epe",
+   "capex": 7.0,
+   "be": 1.468,
+   "epe": false
+  },
+  {
+   "view": "epe",
+   "capex": 8.0,
+   "be": 1.642,
+   "epe": false
+  },
+  {
+   "view": "epe",
+   "capex": 9.0,
+   "be": 1.816,
+   "epe": false
+  },
+  {
+   "view": "epe",
+   "capex": 10.0,
+   "be": 1.991,
+   "epe": false
+  },
+  {
+   "view": "sudene",
+   "capex": 3.0,
+   "be": 0.743,
+   "epe": false
+  },
+  {
+   "view": "sudene",
+   "capex": 4.0,
+   "be": 0.909,
+   "epe": false
+  },
+  {
+   "view": "sudene",
+   "capex": 5.0,
+   "be": 1.074,
+   "epe": true
+  },
+  {
+   "view": "sudene",
+   "capex": 6.0,
+   "be": 1.24,
+   "epe": true
+  },
+  {
+   "view": "sudene",
+   "capex": 7.0,
+   "be": 1.405,
+   "epe": false
+  },
+  {
+   "view": "sudene",
+   "capex": 8.0,
+   "be": 1.57,
+   "epe": false
+  },
+  {
+   "view": "sudene",
+   "capex": 9.0,
+   "be": 1.736,
+   "epe": false
+  },
+  {
+   "view": "sudene",
+   "capex": 10.0,
+   "be": 1.901,
+   "epe": false
+  },
+  {
+   "view": "market",
+   "capex": 3.0,
+   "be": 0.783,
+   "epe": false
+  },
+  {
+   "view": "market",
+   "capex": 4.0,
+   "be": 0.961,
+   "epe": false
+  },
+  {
+   "view": "market",
+   "capex": 5.0,
+   "be": 1.14,
+   "epe": true
+  },
+  {
+   "view": "market",
+   "capex": 6.0,
+   "be": 1.318,
+   "epe": true
+  },
+  {
+   "view": "market",
+   "capex": 7.0,
+   "be": 1.496,
+   "epe": false
+  },
+  {
+   "view": "market",
+   "capex": 8.0,
+   "be": 1.675,
+   "epe": false
+  },
+  {
+   "view": "market",
+   "capex": 9.0,
+   "be": 1.853,
+   "epe": false
+  },
+  {
+   "view": "market",
+   "capex": 10.0,
+   "be": 2.031,
+   "epe": false
+  }
+ ]
+}

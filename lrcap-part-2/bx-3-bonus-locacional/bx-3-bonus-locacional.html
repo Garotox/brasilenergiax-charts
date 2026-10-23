@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O bônus permite a um projeto do Nordeste ofertar até 11% a mais que um rival do Sudeste e ainda ficar à frente</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.8.1/prop-types.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/recharts/2.12.7/Recharts.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: #FFFFFF; color: #595959;
+      font-family: 'DM Sans', -apple-system, 'Segoe UI', sans-serif; }
+    #root { width: 100%; height: 100%; }
+    button { font-family: inherit; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const { ResponsiveContainer, ComposedChart, BarChart, Bar, LineChart, Line, Cell, LabelList,
+      XAxis, YAxis, Tooltip, ReferenceLine } = Recharts;
+    var e = React.createElement, useState = React.useState, useEffect = React.useEffect;
+    var Q = new URLSearchParams(window.location.search);
+    var STATIC = Q.has("static");
+    // export mode: lay out at exactly 1600 x 900 whatever viewport headless Chrome reports before capture
+    if (STATIC) { var st = document.createElement("style");
+      st.textContent = "html, body { width: 1600px !important; height: 900px !important; }"; document.head.appendChild(st); }
+    if (STATIC) {
+      [Recharts.Bar, Recharts.Line].forEach(function(C) {
+        if (C && C.defaultProps) C.defaultProps = Object.assign({}, C.defaultProps, { isAnimationActive: false });
+      });
+    }
+    // technology colours (BX extension): wind teal-blue, solar amber; lighter shade = same hue at lower opacity
+    var BX = { lime: "#A2B142", olive: "#455141", grey: "#BFBFBF",
+      // ramps for several context series (lightest = oldest or smallest); the highlight stays lime
+      greys: ["#D4D4D4", "#ADADAD", "#878787", "#5F5F5F"],
+      greens: ["#CDD5C2", "#A3B095", "#77876A", "#4C5A44"], text: "#595959", axis: "#D9D9D9", bg: "#FFFFFF",
+      wind: "#2F7A99", solar: "#E3A21A" };
+    // ramp for context series: olive greens (house choice, Oct 2026); ?ramp=grey for the grey alternative
+    var RAMP = Q.get("ramp") === "grey" ? BX.greys : BX.greens;
+    var DATASETS = {"with": [{"region": "NE", "project": "NE 3,7", "name": "Nordeste com bônus, capex R$ 3.700/kW", "bid": 0.935, "ranked": 0.841, "bonus": 0.093, "cleared": true, "x0": 0.0, "x1": 0.5, "mid": 0.25}, {"region": "NE", "project": "NE 4,2", "name": "Nordeste com bônus, capex R$ 4.200/kW", "bid": 1.016, "ranked": 0.914, "bonus": 0.102, "cleared": true, "x0": 0.5, "x1": 1.0, "mid": 0.75}, {"region": "SE", "project": "SE 3,7", "name": "Sudeste, capex R$ 3.700/kW", "bid": 0.94, "ranked": 0.94, "bonus": 0.0, "cleared": true, "x0": 1.0, "x1": 1.5, "mid": 1.25}, {"region": "NE", "project": "NE 4,7", "name": "Nordeste com bônus, capex R$ 4.700/kW", "bid": 1.097, "ranked": 0.987, "bonus": 0.11, "cleared": true, "x0": 1.5, "x1": 2.0, "mid": 1.75}, {"region": "SE", "project": "SE 4,2", "name": "Sudeste, capex R$ 4.200/kW", "bid": 1.025, "ranked": 1.025, "bonus": 0.0, "cleared": true, "x0": 2.0, "x1": 2.5, "mid": 2.25}, {"region": "NE", "project": "NE 5,2", "name": "Nordeste com bônus, capex R$ 5.200/kW", "bid": 1.178, "ranked": 1.061, "bonus": 0.118, "cleared": true, "x0": 2.5, "x1": 3.0, "mid": 2.75}, {"region": "SE", "project": "SE 4,7", "name": "Sudeste, capex R$ 4.700/kW", "bid": 1.111, "ranked": 1.111, "bonus": 0.0, "cleared": true, "x0": 3.0, "x1": 3.5, "mid": 3.25}, {"region": "NE", "project": "NE 5,7", "name": "Nordeste com bônus, capex R$ 5.700/kW", "bid": 1.26, "ranked": 1.134, "bonus": 0.126, "cleared": true, "x0": 3.5, "x1": 4.0, "mid": 3.75}, {"region": "SE", "project": "SE 5,2", "name": "Sudeste, capex R$ 5.200/kW", "bid": 1.197, "ranked": 1.197, "bonus": 0.0, "cleared": false, "x0": 4.0, "x1": 4.5, "mid": 4.25}, {"region": "NE", "project": "NE 6,2", "name": "Nordeste com bônus, capex R$ 6.200/kW", "bid": 1.341, "ranked": 1.207, "bonus": 0.134, "cleared": false, "x0": 4.5, "x1": 5.0, "mid": 4.75}, {"region": "SE", "project": "SE 5,7", "name": "Sudeste, capex R$ 5.700/kW", "bid": 1.283, "ranked": 1.283, "bonus": 0.0, "cleared": false, "x0": 5.0, "x1": 5.5, "mid": 5.25}, {"region": "SE", "project": "SE 6,2", "name": "Sudeste, capex R$ 6.200/kW", "bid": 1.368, "ranked": 1.368, "bonus": 0.0, "cleared": false, "x0": 5.5, "x1": 6.0, "mid": 5.75}], "without": [{"region": "NE", "project": "NE 3,7", "name": "Nordeste com bônus, capex R$ 3.700/kW", "bid": 0.935, "ranked": 0.935, "bonus": 0.0, "cleared": true, "x0": 0.0, "x1": 0.5, "mid": 0.25}, {"region": "SE", "project": "SE 3,7", "name": "Sudeste, capex R$ 3.700/kW", "bid": 0.94, "ranked": 0.94, "bonus": 0.0, "cleared": true, "x0": 0.5, "x1": 1.0, "mid": 0.75}, {"region": "NE", "project": "NE 4,2", "name": "Nordeste com bônus, capex R$ 4.200/kW", "bid": 1.016, "ranked": 1.016, "bonus": 0.0, "cleared": true, "x0": 1.0, "x1": 1.5, "mid": 1.25}, {"region": "SE", "project": "SE 4,2", "name": "Sudeste, capex R$ 4.200/kW", "bid": 1.025, "ranked": 1.025, "bonus": 0.0, "cleared": true, "x0": 1.5, "x1": 2.0, "mid": 1.75}, {"region": "NE", "project": "NE 4,7", "name": "Nordeste com bônus, capex R$ 4.700/kW", "bid": 1.097, "ranked": 1.097, "bonus": 0.0, "cleared": true, "x0": 2.0, "x1": 2.5, "mid": 2.25}, {"region": "SE", "project": "SE 4,7", "name": "Sudeste, capex R$ 4.700/kW", "bid": 1.111, "ranked": 1.111, "bonus": 0.0, "cleared": true, "x0": 2.5, "x1": 3.0, "mid": 2.75}, {"region": "NE", "project": "NE 5,2", "name": "Nordeste com bônus, capex R$ 5.200/kW", "bid": 1.178, "ranked": 1.178, "bonus": 0.0, "cleared": true, "x0": 3.0, "x1": 3.5, "mid": 3.25}, {"region": "SE", "project": "SE 5,2", "name": "Sudeste, capex R$ 5.200/kW", "bid": 1.197, "ranked": 1.197, "bonus": 0.0, "cleared": true, "x0": 3.5, "x1": 4.0, "mid": 3.75}, {"region": "NE", "project": "NE 5,7", "name": "Nordeste com bônus, capex R$ 5.700/kW", "bid": 1.26, "ranked": 1.26, "bonus": 0.0, "cleared": false, "x0": 4.0, "x1": 4.5, "mid": 4.25}, {"region": "SE", "project": "SE 5,7", "name": "Sudeste, capex R$ 5.700/kW", "bid": 1.283, "ranked": 1.283, "bonus": 0.0, "cleared": false, "x0": 4.5, "x1": 5.0, "mid": 4.75}, {"region": "NE", "project": "NE 6,2", "name": "Nordeste com bônus, capex R$ 6.200/kW", "bid": 1.341, "ranked": 1.341, "bonus": 0.0, "cleared": false, "x0": 5.0, "x1": 5.5, "mid": 5.25}, {"region": "SE", "project": "SE 6,2", "name": "Sudeste, capex R$ 6.200/kW", "bid": 1.368, "ranked": 1.368, "bonus": 0.0, "cleared": false, "x0": 5.5, "x1": 6.0, "mid": 5.75}]}, OPTIONS = [{"key": "with", "label": "Com bônus", "title": "O bônus permite a um projeto do Nordeste ofertar até 11% a mais que um rival do Sudeste e ainda ficar à frente"}, {"key": "without", "label": "Sem bônus", "title": "Sem o bônus, a classificação segue só o lance"}], EXTRA = {"ymax": 1.5, "ticks": [0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5], "xmax": 6.0, "xticks": [0, 1, 2, 3, 4, 5, 6], "volume": 4};
+    function br(v, d) { return Number(v).toLocaleString("pt-BR", { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 }); }
+    function useSize() {
+      var s = useState(STATIC ? { w: 1600, h: 900 } : { w: window.innerWidth, h: window.innerHeight }); var size = s[0], set = s[1];
+      useEffect(function() { if (STATIC) return; function f() { set({ w: window.innerWidth, h: window.innerHeight }); }
+        window.addEventListener("resize", f); return function() { window.removeEventListener("resize", f); }; }, []);
+      return size;
+    }
+    function Tip(props) {
+      if (!props.active || !props.payload || !props.payload.length) return null;
+      var rows = props.rows ? props.rows(props.payload, props.label) : [];
+      return e("div", { style: { background: "#FFFFFF", border: "1px solid " + BX.axis, padding: "8px 12px", borderRadius: 4,
+          fontSize: 13, color: BX.text, fontFamily: "'DM Sans', sans-serif" } },
+        e("div", { style: { fontWeight: 700, marginBottom: 4 } }, props.title ? props.title(props.payload, props.label) : props.label),
+        rows.map(function(r, i) { return e("div", { key: i }, r); }));
+    }
+
+
+    function xAxis(ctx, p) { return e(XAxis, Object.assign({ tick: { fontSize: ctx.fs.axis, fill: BX.text, fontFamily: "'DM Sans', sans-serif" },
+      axisLine: { stroke: BX.axis }, tickLine: false }, p)); }
+    function yAxis(ctx, p) { return e(YAxis, Object.assign({ tick: { fontSize: ctx.fs.axis, fill: BX.text, fontFamily: "'DM Sans', sans-serif" },
+      axisLine: false, tickLine: false, width: 52 * ctx.k }, p)); }
+    function txt(ctx, x, y, s, o) { return e("text", Object.assign({ x: x, y: y, fontSize: ctx.fs.label, fill: BX.text,
+      fontFamily: "'DM Sans', sans-serif", stroke: "#FFFFFF", strokeWidth: 4, paintOrder: "stroke", strokeLinejoin: "round" }, o || {}), s); }
+    // a text label pinned to a data point (x, y) via a zero-length reference segment
+    function pin(ctx, key, x, y, s, o) { return e(ReferenceLine, { key: key, segment: [{ x: x, y: y }, { x: x, y: y }], stroke: "none", ifOverflow: "visible",
+      label: function(p) { var v = p.viewBox; return txt(ctx, v.x + ((o && o.dx) || 0), v.y + ((o && o.dy) || 0), s, o); } }); }
+    function head(ctx, s) { return e("p", { style: { fontSize: ctx.fs.label, fontWeight: 700, color: BX.text, marginBottom: 6 * ctx.k } }, s); }
+
+    var RA = Recharts.ReferenceArea;
+    function ChartBody(ctx) {
+      var k = ctx.k, X = EXTRA;
+      var col = function(r) { return r.region === "NE" ? BX.lime : BX.olive; };
+      var blocks = [];
+      ctx.data.forEach(function(r, i) {
+        var op = r.cleared ? 1 : 0.35;
+        blocks.push(e(RA, { key: "b" + i, x1: r.x0, x2: r.x1, y1: 0, y2: r.ranked, ifOverflow: "visible", fill: col(r), fillOpacity: op,
+          stroke: "#FFFFFF", strokeWidth: 2, label: function(p) { var v = p.viewBox, cx = v.x + v.width / 2;
+            return e("g", null,
+              e("text", { x: cx, y: v.y + 22 * k, textAnchor: "middle", fontSize: ctx.fs.label, fill: r.cleared ? "#FFFFFF" : BX.text,
+                fontWeight: 700, fontFamily: "'DM Sans', sans-serif" }, br(r.ranked, 2)),
+              e("text", { x: cx, y: v.y + v.height - 12 * k, textAnchor: "middle", fontSize: ctx.fs.label * 0.9,
+                fill: r.cleared ? "#FFFFFF" : BX.text, fontFamily: "'DM Sans', sans-serif" }, r.project)); } }));
+        if (r.bonus > 0) blocks.push(e(RA, { key: "u" + i, x1: r.x0, x2: r.x1, y1: r.ranked, y2: r.bid, ifOverflow: "visible", fill: "none",
+          stroke: BX.lime, strokeOpacity: r.cleared ? 1 : 0.5, strokeDasharray: "4 3", strokeWidth: 1.5,
+          label: function(p) { var v = p.viewBox; return txt(ctx, v.x + v.width / 2, v.y - 8 * k, br(r.bid, 2),
+            { textAnchor: "middle", fontSize: ctx.fs.label * 0.9 }); } }));
+      });
+      return e(ResponsiveContainer, { width: "100%", height: "100%" },
+        e(ComposedChart, { data: ctx.data, margin: { top: 30 * k, right: 20 * k, left: 0, bottom: 4 * k } },
+          xAxis(ctx, { type: "number", dataKey: "mid", domain: [0, X.xmax], ticks: X.xticks, tickFormatter: function(v) { return v + " GW"; } }),
+          yAxis(ctx, { type: "number", domain: [0, X.ymax], ticks: X.ticks, tickFormatter: function(v) { return br(v, 2); } }),
+          blocks,
+          e(ReferenceLine, { x: X.volume, stroke: BX.text, strokeDasharray: "5 4", ifOverflow: "visible",
+            label: function(p) { var v = p.viewBox; return txt(ctx, v.x - 10 * k, v.y + 4 * k, X.volume + " GW contratados (ilustrativo)",
+              { textAnchor: "end", fontWeight: 700 }); } }),
+          e(Tooltip, { cursor: { stroke: BX.axis }, content: e(Tip, { title: function(p) { return p[0].payload.name; },
+            rows: function(p) { var r = p[0].payload; return ["Lance (pago se vencer): R$ " + br(r.bid, 2) + " mi/MW/ano",
+              "Classificado a: R$ " + br(r.ranked, 2) + " mi/MW/ano", r.cleared ? "Vence" : "Ofertado, não contratado"]; } }) }),
+          e(Line, { dataKey: "ranked", type: "step", stroke: "none", dot: false, activeDot: false, isAnimationActive: false })));
+    }
+
+
+    function App() {
+      var size = useSize();
+      var k = Math.max(0.5, Math.min(1, size.w / 1600));  // 1 at the 1600 x 900 design size
+      var mob = size.w < 640;
+      var vs = useState(Q.get("view") || (OPTIONS ? OPTIONS[0].key : "default")); var view = vs[0], setView = vs[1];
+      // remount the chart once after layout settles: headless Chrome (PNG export) keeps the first, smaller measure otherwise
+      var rs = useState(0); var remount = rs[0], setRemount = rs[1];
+      useEffect(function() { var t = setTimeout(function() { setRemount(1); }, 400); return function() { clearTimeout(t); }; }, []);
+      var opt = OPTIONS ? OPTIONS.filter(function(o) { return o.key === view; })[0] : null;
+      var title = (opt && opt.title) || "O bônus permite a um projeto do Nordeste ofertar até 11% a mais que um rival do Sudeste e ainda ficar à frente";
+      var fs = { title: 24 * k, sub: 16 * k, axis: 16 * k, label: 15 * k, foot: Math.max(11, 14.67 * k) };
+      var ctx = { data: DATASETS[view], view: view, k: k, fs: fs, mob: mob, hl: Q.get("hl"), upto: Q.get("upto") };
+      var pad = (mob ? 14 : 48 * k) + "px " + (mob ? 14 : 56 * k) + "px";
+      return e("div", { style: { display: "flex", flexDirection: "column", width: "100%", height: "100%", padding: pad, background: BX.bg } },
+        e("h1", { style: { fontSize: fs.title, fontWeight: 700, color: BX.text, lineHeight: 1.25, textAlign: "left" } }, title),
+        e("p", { style: { fontSize: fs.sub, fontWeight: 400, color: BX.text, marginTop: 6 * k } }, "Pilha ilustrativa de projetos de 500 MW, rotulados por região e capex em R$ mil/kW. Verde claro: Nordeste com bônus; verde escuro: Sudeste (R$ mi/MW/ano)"),
+        (OPTIONS && !STATIC) ? e("div", { style: { display: "flex", gap: 6, marginTop: 12 * k } },
+          OPTIONS.map(function(o) {
+            var on = o.key === view;
+            return e("button", { key: o.key, onClick: function() { setView(o.key); },
+              style: { border: "1px solid " + (on ? BX.lime : BX.axis), background: on ? BX.lime : "#FFFFFF", color: on ? "#FFFFFF" : BX.text,
+                fontSize: 13, fontWeight: on ? 700 : 400, padding: "4px 12px", borderRadius: 999, cursor: "pointer" } }, o.label);
+          })) : null,
+        e("div", { key: "chart" + remount, style: { flex: 1, minHeight: 0, marginTop: 18 * k } }, ChartBody(ctx)),
+        "Nota: cada projeto oferta seu ponto de equilíbrio. Tracejado: parte do lance paga, mas não contada na classificação (0,9x). Nordeste com SUDENE e TUST de R$ 160; Sudeste com R$ 133." ? e("p", { style: { fontSize: fs.foot, color: BX.text, marginTop: 10 * k, lineHeight: 1.35 } }, "Nota: cada projeto oferta seu ponto de equilíbrio. Tracejado: parte do lance paga, mas não contada na classificação (0,9x). Nordeste com SUDENE e TUST de R$ 160; Sudeste com R$ 133.") : null,
+        e("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 24, marginTop: 6 * k,
+            fontSize: fs.foot, color: BX.text } },
+          e("span", null, "Fonte: MME (Portaria 136/2026); EPE (2026); ANEEL (2026)"),
+          e("span", { style: { whiteSpace: "nowrap" } }, "@BrasilEnergiaX"))
+      );
+    }
+    // render after DM Sans loads, so the chart measures its final box (headless PNG export depends on it)
+    (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function() {
+      ReactDOM.createRoot(document.getElementById("root")).render(e(App));
+    });
+  </script>
+</body>
+</html>

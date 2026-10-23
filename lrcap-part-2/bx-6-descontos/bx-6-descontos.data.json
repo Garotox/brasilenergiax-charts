@@ -1,0 +1,80 @@
+{
+ "title": "Os descontos dos LRCAP passados seguiram mais a tecnologia que a disputa: de 0% a 14% abaixo do teto para gás, carvão e hidro, de 44% a 56% para óleo e biodiesel",
+ "subtitle": "Desconto sobre o preço teto (%) por sobredemanda: MW habilitados sobre MW contratados (escala log)",
+ "source": "Fonte: EPE (2021, 2026); CCEE (2026); Terna (2025)",
+ "note": "Nota: projetos de março podem se habilitar a vários produtos. Baterias: MW cadastrados sobre 2 a 6 GW.",
+ "data": [
+  {
+   "series": "thermal_hydro",
+   "name": "Gás, carvão e hidro (mar/2026): POTH-2030",
+   "x": 1.53,
+   "y": 0.55
+  },
+  {
+   "series": "thermal_hydro",
+   "name": "Gás, carvão e hidro (mar/2026): POTH-2031",
+   "x": 18.64,
+   "y": 0.0
+  },
+  {
+   "series": "thermal_hydro",
+   "name": "Gás, carvão e hidro (mar/2026): POTT-2026",
+   "x": 2.44,
+   "y": 2.24
+  },
+  {
+   "series": "thermal_hydro",
+   "name": "Gás, carvão e hidro (mar/2026): POTT-2027",
+   "x": 3.53,
+   "y": 0.01
+  },
+  {
+   "series": "thermal_hydro",
+   "name": "Gás, carvão e hidro (mar/2026): POTT-2028",
+   "x": 5.52,
+   "y": 6.17
+  },
+  {
+   "series": "thermal_hydro",
+   "name": "Gás, carvão e hidro (mar/2026): POTT-2029",
+   "x": 14.89,
+   "y": 2.67
+  },
+  {
+   "series": "thermal_hydro",
+   "name": "Gás, carvão e hidro (mar/2026): POTT-2031",
+   "x": 16.78,
+   "y": 13.57
+  },
+  {
+   "series": "oil_bio",
+   "name": "Óleo e biodiesel (mar/2026): POTT-2026",
+   "x": 8.02,
+   "y": 44.0
+  },
+  {
+   "series": "oil_bio",
+   "name": "Óleo e biodiesel (mar/2026): POTT-2027",
+   "x": 12.58,
+   "y": 46.74
+  },
+  {
+   "series": "oil_bio",
+   "name": "Óleo e biodiesel (mar/2026): POTT-2030",
+   "x": 24.67,
+   "y": 55.71
+  },
+  {
+   "series": "lrcap_2021",
+   "name": "Térmicas (dez/2021): POTE2026-15",
+   "x": 5.51,
+   "y": 15.34
+  },
+  {
+   "series": "macse",
+   "name": "MACSE, Itália (2025): MACSE 2028",
+   "x": 4.0,
+   "y": 64.98
+  }
+ ]
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cada R$ 1.000/kW de capex soma R$ 0,17 mi ao lance de equilíbrio; o incentivo da SUDENE tira R$ 0,05 mi no Nordeste</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.8.1/prop-types.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/recharts/2.12.7/Recharts.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: #FFFFFF; color: #595959;
+      font-family: 'DM Sans', -apple-system, 'Segoe UI', sans-serif; }
+    #root { width: 100%; height: 100%; }
+    button { font-family: inherit; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const { ResponsiveContainer, ComposedChart, BarChart, Bar, LineChart, Line, Cell, LabelList,
+      XAxis, YAxis, Tooltip, ReferenceLine } = Recharts;
+    var e = React.createElement, useState = React.useState, useEffect = React.useEffect;
+    var Q = new URLSearchParams(window.location.search);
+    var STATIC = Q.has("static");
+    // export mode: lay out at exactly 1600 x 900 whatever viewport headless Chrome reports before capture
+    if (STATIC) { var st = document.createElement("style");
+      st.textContent = "html, body { width: 1600px !important; height: 900px !important; }"; document.head.appendChild(st); }
+    if (STATIC) {
+      [Recharts.Bar, Recharts.Line].forEach(function(C) {
+        if (C && C.defaultProps) C.defaultProps = Object.assign({}, C.defaultProps, { isAnimationActive: false });
+      });
+    }
+    // technology colours (BX extension): wind teal-blue, solar amber; lighter shade = same hue at lower opacity
+    var BX = { lime: "#A2B142", olive: "#455141", grey: "#BFBFBF",
+      // ramps for several context series (lightest = oldest or smallest); the highlight stays lime
+      greys: ["#D4D4D4", "#ADADAD", "#878787", "#5F5F5F"],
+      greens: ["#CDD5C2", "#A3B095", "#77876A", "#4C5A44"], text: "#595959", axis: "#D9D9D9", bg: "#FFFFFF",
+      wind: "#2F7A99", solar: "#E3A21A" };
+    // ramp for context series: olive greens (house choice, Oct 2026); ?ramp=grey for the grey alternative
+    var RAMP = Q.get("ramp") === "grey" ? BX.greys : BX.greens;
+    var DATASETS = {"epe": [{"capex": 3.0, "be": 0.771, "epe": false}, {"capex": 4.0, "be": 0.945, "epe": false}, {"capex": 5.0, "be": 1.119, "epe": true}, {"capex": 6.0, "be": 1.294, "epe": true}, {"capex": 7.0, "be": 1.468, "epe": false}, {"capex": 8.0, "be": 1.642, "epe": false}, {"capex": 9.0, "be": 1.816, "epe": false}, {"capex": 10.0, "be": 1.991, "epe": false}], "sudene": [{"capex": 3.0, "be": 0.743, "epe": false}, {"capex": 4.0, "be": 0.909, "epe": false}, {"capex": 5.0, "be": 1.074, "epe": true}, {"capex": 6.0, "be": 1.24, "epe": true}, {"capex": 7.0, "be": 1.405, "epe": false}, {"capex": 8.0, "be": 1.57, "epe": false}, {"capex": 9.0, "be": 1.736, "epe": false}, {"capex": 10.0, "be": 1.901, "epe": false}], "market": [{"capex": 3.0, "be": 0.783, "epe": false}, {"capex": 4.0, "be": 0.961, "epe": false}, {"capex": 5.0, "be": 1.14, "epe": true}, {"capex": 6.0, "be": 1.318, "epe": true}, {"capex": 7.0, "be": 1.496, "epe": false}, {"capex": 8.0, "be": 1.675, "epe": false}, {"capex": 9.0, "be": 1.853, "epe": false}, {"capex": 10.0, "be": 2.031, "epe": false}]}, OPTIONS = [{"key": "epe", "label": "Base EPE", "title": "Cada R$ 1.000/kW de capex soma R$ 0,17 mi ao lance de equilíbrio; o incentivo da SUDENE tira R$ 0,05 mi no Nordeste"}, {"key": "sudene", "label": "SUDENE −R$ 0,05 mi", "title": "Cada R$ 1.000/kW de capex soma R$ 0,17 mi ao lance de equilíbrio; o incentivo da SUDENE tira R$ 0,05 mi no Nordeste"}, {"key": "market", "label": "Dívida de mercado +R$ 0,02 mi", "title": "Cada R$ 1.000/kW de capex soma R$ 0,17 mi ao lance de equilíbrio; o incentivo da SUDENE tira R$ 0,05 mi no Nordeste"}], EXTRA = {"ymax": 2.25, "yticks": [0.0, 0.5, 1.0, 1.5, 2.0], "sa": [5.18, 6.02], "rebase": 4.69};
+    function br(v, d) { return Number(v).toLocaleString("pt-BR", { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 }); }
+    function useSize() {
+      var s = useState(STATIC ? { w: 1600, h: 900 } : { w: window.innerWidth, h: window.innerHeight }); var size = s[0], set = s[1];
+      useEffect(function() { if (STATIC) return; function f() { set({ w: window.innerWidth, h: window.innerHeight }); }
+        window.addEventListener("resize", f); return function() { window.removeEventListener("resize", f); }; }, []);
+      return size;
+    }
+    function Tip(props) {
+      if (!props.active || !props.payload || !props.payload.length) return null;
+      var rows = props.rows ? props.rows(props.payload, props.label) : [];
+      return e("div", { style: { background: "#FFFFFF", border: "1px solid " + BX.axis, padding: "8px 12px", borderRadius: 4,
+          fontSize: 13, color: BX.text, fontFamily: "'DM Sans', sans-serif" } },
+        e("div", { style: { fontWeight: 700, marginBottom: 4 } }, props.title ? props.title(props.payload, props.label) : props.label),
+        rows.map(function(r, i) { return e("div", { key: i }, r); }));
+    }
+
+
+    function xAxis(ctx, p) { return e(XAxis, Object.assign({ tick: { fontSize: ctx.fs.axis, fill: BX.text, fontFamily: "'DM Sans', sans-serif" },
+      axisLine: { stroke: BX.axis }, tickLine: false }, p)); }
+    function yAxis(ctx, p) { return e(YAxis, Object.assign({ tick: { fontSize: ctx.fs.axis, fill: BX.text, fontFamily: "'DM Sans', sans-serif" },
+      axisLine: false, tickLine: false, width: 52 * ctx.k }, p)); }
+    function txt(ctx, x, y, s, o) { return e("text", Object.assign({ x: x, y: y, fontSize: ctx.fs.label, fill: BX.text,
+      fontFamily: "'DM Sans', sans-serif", stroke: "#FFFFFF", strokeWidth: 4, paintOrder: "stroke", strokeLinejoin: "round" }, o || {}), s); }
+    // a text label pinned to a data point (x, y) via a zero-length reference segment
+    function pin(ctx, key, x, y, s, o) { return e(ReferenceLine, { key: key, segment: [{ x: x, y: y }, { x: x, y: y }], stroke: "none", ifOverflow: "visible",
+      label: function(p) { var v = p.viewBox; return txt(ctx, v.x + ((o && o.dx) || 0), v.y + ((o && o.dy) || 0), s, o); } }); }
+    function head(ctx, s) { return e("p", { style: { fontSize: ctx.fs.label, fontWeight: 700, color: BX.text, marginBottom: 6 * ctx.k } }, s); }
+
+    var RA = Recharts.ReferenceArea;
+    function ChartBody(ctx) {
+      var k = ctx.k, X = EXTRA;
+      return e(ResponsiveContainer, { width: "100%", height: "100%" },
+        e(BarChart, { data: ctx.data, margin: { top: 56 * k, right: 20 * k, left: 0, bottom: 4 * k }, barCategoryGap: "18%" },
+          xAxis(ctx, { dataKey: "capex", type: "number", domain: [2.5, 10.5], ticks: [3, 4, 5, 6, 7, 8, 9, 10],
+            tickFormatter: function(v) { return "R$ " + v + " mil"; } }),
+          yAxis(ctx, { domain: [0, X.ymax], ticks: X.yticks, tickFormatter: function(v) { return br(v, 1); } }),
+          e(RA, { x1: X.sa[0], x2: X.sa[1], y1: 0, y2: X.ymax, fill: BX.grey, fillOpacity: 0.3, ifOverflow: "visible",
+            label: function(p) { var v = p.viewBox; return txt(ctx, v.x + v.width / 2, v.y - 30 * k, "África do Sul,", { textAnchor: "middle" }); } }),
+          e(RA, { x1: X.sa[0], x2: X.sa[1], y1: 0, y2: X.ymax, fill: "none", ifOverflow: "visible",
+            label: function(p) { var v = p.viewBox; return txt(ctx, v.x + v.width / 2, v.y - 10 * k, "lances de 2024", { textAnchor: "middle" }); } }),
+          e(Tooltip, { cursor: { fill: "rgba(0,0,0,0.03)" }, content: e(Tip, { title: function(p) { return "Capex R$ " + br(p[0].payload.capex * 1000) + "/kW"; },
+            rows: function(p) { return ["Equilíbrio: R$ " + br(p[0].payload.be, 2) + " mi/MW/ano"]; } }) }),
+          e(Bar, { dataKey: "be", isAnimationActive: !STATIC },
+            ctx.data.map(function(r, i) { return e(Cell, { key: i, fill: BX.olive, fillOpacity: r.epe ? 1 : 0.45 }); }),
+            e(LabelList, { dataKey: "be", content: function(p) { return txt(ctx, p.x + p.width / 2, p.y - 10 * k, br(p.value, 2),
+              { textAnchor: "middle" }); } })),
+          e(ReferenceLine, { x: X.rebase, stroke: BX.lime, strokeWidth: 4 * k, ifOverflow: "visible",
+            label: function(p) { var v = p.viewBox; return e("g", null,
+              txt(ctx, v.x, v.y - 30 * k, "Capex a preços de 2027:", { textAnchor: "middle", fontWeight: 700, fill: BX.olive }),
+              txt(ctx, v.x, v.y - 10 * k, "R$ " + br(X.rebase * 1000, 0) + "/kW", { textAnchor: "middle", fontWeight: 700, fill: BX.olive })); } })));
+    }
+
+
+    function App() {
+      var size = useSize();
+      var k = Math.max(0.5, Math.min(1, size.w / 1600));  // 1 at the 1600 x 900 design size
+      var mob = size.w < 640;
+      var vs = useState(Q.get("view") || (OPTIONS ? OPTIONS[0].key : "default")); var view = vs[0], setView = vs[1];
+      // remount the chart once after layout settles: headless Chrome (PNG export) keeps the first, smaller measure otherwise
+      var rs = useState(0); var remount = rs[0], setRemount = rs[1];
+      useEffect(function() { var t = setTimeout(function() { setRemount(1); }, 400); return function() { clearTimeout(t); }; }, []);
+      var opt = OPTIONS ? OPTIONS.filter(function(o) { return o.key === view; })[0] : null;
+      var title = (opt && opt.title) || "Cada R$ 1.000/kW de capex soma R$ 0,17 mi ao lance de equilíbrio; o incentivo da SUDENE tira R$ 0,05 mi no Nordeste";
+      var fs = { title: 24 * k, sub: 16 * k, axis: 16 * k, label: 15 * k, foot: Math.max(11, 14.67 * k) };
+      var ctx = { data: DATASETS[view], view: view, k: k, fs: fs, mob: mob, hl: Q.get("hl"), upto: Q.get("upto") };
+      var pad = (mob ? 14 : 48 * k) + "px " + (mob ? 14 : 56 * k) + "px";
+      return e("div", { style: { display: "flex", flexDirection: "column", width: "100%", height: "100%", padding: pad, background: BX.bg } },
+        e("h1", { style: { fontSize: fs.title, fontWeight: 700, color: BX.text, lineHeight: 1.25, textAlign: "left" } }, title),
+        e("p", { style: { fontSize: fs.sub, fontWeight: 400, color: BX.text, marginTop: 6 * k } }, "Receita fixa de equilíbrio por capex total (R$ mi/MW/ano)"),
+        (OPTIONS && !STATIC) ? e("div", { style: { display: "flex", gap: 6, marginTop: 12 * k } },
+          OPTIONS.map(function(o) {
+            var on = o.key === view;
+            return e("button", { key: o.key, onClick: function() { setView(o.key); },
+              style: { border: "1px solid " + (on ? BX.lime : BX.axis), background: on ? BX.lime : "#FFFFFF", color: on ? "#FFFFFF" : BX.text,
+                fontSize: 13, fontWeight: on ? 700 : 400, padding: "4px 12px", borderRadius: 999, cursor: "pointer" } }, o.label);
+          })) : null,
+        e("div", { key: "chart" + remount, style: { flex: 1, minHeight: 0, marginTop: 18 * k } }, ChartBody(ctx)),
+        "Nota: retorno real de 12%, 60% de dívida, TUST da EPE. Barras escuras: faixa da EPE de dez/2024. Faixa cinza: capex da Rodada 3 da África do Sul, ao câmbio dos lances." ? e("p", { style: { fontSize: fs.foot, color: BX.text, marginTop: 10 * k, lineHeight: 1.35 } }, "Nota: retorno real de 12%, 60% de dívida, TUST da EPE. Barras escuras: faixa da EPE de dez/2024. Faixa cinza: capex da Rodada 3 da África do Sul, ao câmbio dos lances.") : null,
+        e("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 24, marginTop: 6 * k,
+            fontSize: fs.foot, color: BX.text } },
+          e("span", null, "Fonte: EPE (PDE 2035); BNDES (2026); DEE África do Sul (2025); BNEF (2025); TrendForce (2026)"),
+          e("span", { style: { whiteSpace: "nowrap" } }, "@BrasilEnergiaX"))
+      );
+    }
+    // render after DM Sans loads, so the chart measures its final box (headless PNG export depends on it)
+    (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function() {
+      ReactDOM.createRoot(document.getElementById("root")).render(e(App));
+    });
+  </script>
+</body>
+</html>

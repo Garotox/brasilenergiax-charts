@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sem receita de mercado, as baterias precisam de R$ 1,21 mi/MW/ano de receita fixa para empatar; capex e financiamento são 62% disso</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.8.1/prop-types.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/recharts/2.12.7/Recharts.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: #FFFFFF; color: #595959;
+      font-family: 'DM Sans', -apple-system, 'Segoe UI', sans-serif; }
+    #root { width: 100%; height: 100%; }
+    button { font-family: inherit; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const { ResponsiveContainer, ComposedChart, BarChart, Bar, LineChart, Line, Cell, LabelList,
+      XAxis, YAxis, Tooltip, ReferenceLine } = Recharts;
+    var e = React.createElement, useState = React.useState, useEffect = React.useEffect;
+    var Q = new URLSearchParams(window.location.search);
+    var STATIC = Q.has("static");
+    // export mode: lay out at exactly 1600 x 900 whatever viewport headless Chrome reports before capture
+    if (STATIC) { var st = document.createElement("style");
+      st.textContent = "html, body { width: 1600px !important; height: 900px !important; }"; document.head.appendChild(st); }
+    if (STATIC) {
+      [Recharts.Bar, Recharts.Line].forEach(function(C) {
+        if (C && C.defaultProps) C.defaultProps = Object.assign({}, C.defaultProps, { isAnimationActive: false });
+      });
+    }
+    // technology colours (BX extension): wind teal-blue, solar amber; lighter shade = same hue at lower opacity
+    var BX = { lime: "#A2B142", olive: "#455141", grey: "#BFBFBF",
+      // ramps for several context series (lightest = oldest or smallest); the highlight stays lime
+      greys: ["#D4D4D4", "#ADADAD", "#878787", "#5F5F5F"],
+      greens: ["#CDD5C2", "#A3B095", "#77876A", "#4C5A44"], text: "#595959", axis: "#D9D9D9", bg: "#FFFFFF",
+      wind: "#2F7A99", solar: "#E3A21A" };
+    // ramp for context series: olive greens (house choice, Oct 2026); ?ramp=grey for the grey alternative
+    var RAMP = Q.get("ramp") === "grey" ? BX.greys : BX.greens;
+    var DATASETS = {"epe_basis": [{"step": "Capex e financiamento", "base": 0.0, "value": 749.4, "total": false}, {"step": "O&M", "base": 749.4, "value": 140.0, "total": false}, {"step": "Tributos e encargos", "base": 889.4, "value": 280.0, "total": false}, {"step": "Aumento de capacidade", "base": 1169.5, "value": 32.6, "total": false}, {"step": "Garantias", "base": 1202.1, "value": 4.3, "total": false}, {"step": "Equilíbrio", "base": 0, "value": 1206.4, "total": true}], "northeast_tust": [{"step": "Capex e financiamento", "base": 0.0, "value": 749.4, "total": false}, {"step": "O&M", "base": 749.4, "value": 140.0, "total": false}, {"step": "Tributos e encargos", "base": 889.4, "value": 367.1, "total": false}, {"step": "Aumento de capacidade", "base": 1256.5, "value": 32.6, "total": false}, {"step": "Garantias", "base": 1289.1, "value": 4.3, "total": false}, {"step": "Equilíbrio", "base": 0, "value": 1293.4, "total": true}], "sudene": [{"step": "Capex e financiamento", "base": 0.0, "value": 749.4, "total": false}, {"step": "O&M", "base": 749.4, "value": 140.0, "total": false}, {"step": "Tributos e encargos", "base": 889.4, "value": 235.5, "total": false}, {"step": "Aumento de capacidade", "base": 1124.9, "value": 28.4, "total": false}, {"step": "Garantias", "base": 1153.4, "value": 3.5, "total": false}, {"step": "Equilíbrio", "base": 0, "value": 1156.9, "total": true}], "rebased_2027": [{"step": "Capex e financiamento", "base": 0.0, "value": 639.0, "total": false}, {"step": "O&M", "base": 639.0, "value": 140.0, "total": false}, {"step": "Tributos e encargos", "base": 779.0, "value": 254.0, "total": false}, {"step": "Aumento de capacidade", "base": 1033.1, "value": 27.8, "total": false}, {"step": "Garantias", "base": 1060.9, "value": 4.3, "total": false}, {"step": "Equilíbrio", "base": 0, "value": 1065.2, "total": true}], "epe_max_investment": [{"step": "Capex e financiamento", "base": 0.0, "value": 1335.3, "total": false}, {"step": "O&M", "base": 1335.3, "value": 140.0, "total": false}, {"step": "Tributos e encargos", "base": 1475.3, "value": 418.0, "total": false}, {"step": "Aumento de capacidade", "base": 1893.4, "value": 58.1, "total": false}, {"step": "Garantias", "base": 1951.5, "value": 4.3, "total": false}, {"step": "Equilíbrio", "base": 0, "value": 1955.8, "total": true}]}, OPTIONS = [{"key": "epe_basis", "label": "Base EPE", "title": "Sem receita de mercado, as baterias precisam de R$ 1,21 mi/MW/ano de receita fixa para empatar; capex e financiamento são 62% disso"}, {"key": "northeast_tust", "label": "Rede no Nordeste +R$ 0,09 mi", "title": "Sem receita de mercado, as baterias precisam de R$ 1,21 mi/MW/ano de receita fixa para empatar; capex e financiamento são 62% disso"}, {"key": "sudene", "label": "SUDENE −R$ 0,05 mi", "title": "Sem receita de mercado, as baterias precisam de R$ 1,21 mi/MW/ano de receita fixa para empatar; capex e financiamento são 62% disso"}, {"key": "rebased_2027", "label": "Capex 2027 −R$ 0,14 mi", "title": "Sem receita de mercado, as baterias precisam de R$ 1,21 mi/MW/ano de receita fixa para empatar; capex e financiamento são 62% disso"}, {"key": "epe_max_investment", "label": "R$ 9.800/kW +R$ 0,75 mi", "title": "Sem receita de mercado, as baterias precisam de R$ 1,21 mi/MW/ano de receita fixa para empatar; capex e financiamento são 62% disso"}], EXTRA = {"ymax": 2250, "yticks": [0, 500, 1000, 1500, 2000]};
+    function br(v, d) { return Number(v).toLocaleString("pt-BR", { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 }); }
+    function useSize() {
+      var s = useState(STATIC ? { w: 1600, h: 900 } : { w: window.innerWidth, h: window.innerHeight }); var size = s[0], set = s[1];
+      useEffect(function() { if (STATIC) return; function f() { set({ w: window.innerWidth, h: window.innerHeight }); }
+        window.addEventListener("resize", f); return function() { window.removeEventListener("resize", f); }; }, []);
+      return size;
+    }
+    function Tip(props) {
+      if (!props.active || !props.payload || !props.payload.length) return null;
+      var rows = props.rows ? props.rows(props.payload, props.label) : [];
+      return e("div", { style: { background: "#FFFFFF", border: "1px solid " + BX.axis, padding: "8px 12px", borderRadius: 4,
+          fontSize: 13, color: BX.text, fontFamily: "'DM Sans', sans-serif" } },
+        e("div", { style: { fontWeight: 700, marginBottom: 4 } }, props.title ? props.title(props.payload, props.label) : props.label),
+        rows.map(function(r, i) { return e("div", { key: i }, r); }));
+    }
+
+
+    function xAxis(ctx, p) { return e(XAxis, Object.assign({ tick: { fontSize: ctx.fs.axis, fill: BX.text, fontFamily: "'DM Sans', sans-serif" },
+      axisLine: { stroke: BX.axis }, tickLine: false }, p)); }
+    function yAxis(ctx, p) { return e(YAxis, Object.assign({ tick: { fontSize: ctx.fs.axis, fill: BX.text, fontFamily: "'DM Sans', sans-serif" },
+      axisLine: false, tickLine: false, width: 52 * ctx.k }, p)); }
+    function txt(ctx, x, y, s, o) { return e("text", Object.assign({ x: x, y: y, fontSize: ctx.fs.label, fill: BX.text,
+      fontFamily: "'DM Sans', sans-serif", stroke: "#FFFFFF", strokeWidth: 4, paintOrder: "stroke", strokeLinejoin: "round" }, o || {}), s); }
+    // a text label pinned to a data point (x, y) via a zero-length reference segment
+    function pin(ctx, key, x, y, s, o) { return e(ReferenceLine, { key: key, segment: [{ x: x, y: y }, { x: x, y: y }], stroke: "none", ifOverflow: "visible",
+      label: function(p) { var v = p.viewBox; return txt(ctx, v.x + ((o && o.dx) || 0), v.y + ((o && o.dy) || 0), s, o); } }); }
+    function head(ctx, s) { return e("p", { style: { fontSize: ctx.fs.label, fontWeight: 700, color: BX.text, marginBottom: 6 * ctx.k } }, s); }
+
+    function ChartBody(ctx) {
+      var k = ctx.k, X = EXTRA;
+      return e(ResponsiveContainer, { width: "100%", height: "100%" },
+        e(BarChart, { data: ctx.data, margin: { top: 40 * k, right: 20 * k, left: 0, bottom: 4 * k }, barCategoryGap: "22%" },
+          xAxis(ctx, { dataKey: "step", interval: 0 }),
+          yAxis(ctx, { domain: [0, X.ymax], ticks: X.yticks, tickFormatter: function(v) { return br(v); } }),
+          e(Tooltip, { cursor: { fill: "rgba(0,0,0,0.03)" }, content: e(Tip, { rows: function(p) { var r = p[0].payload;
+            return ["R$ " + br(r.value) + " mil/MW/ano"]; } }) }),
+          e(Bar, { dataKey: "base", stackId: "a", fill: "transparent", isAnimationActive: !STATIC }),
+          e(Bar, { dataKey: "value", stackId: "a", isAnimationActive: !STATIC },
+            ctx.data.map(function(r, i) { return e(Cell, { key: i, fill: r.total ? BX.lime : BX.olive }); }),
+            e(LabelList, { content: function(p) { var r = ctx.data[p.index];
+              return txt(ctx, p.x + p.width / 2, p.y - 12 * k, br(r.value), { textAnchor: "middle", fontWeight: r.total ? 700 : 400,
+                fontSize: ctx.fs.label * (r.total ? 1.2 : 1) }); } }))));
+    }
+
+
+    function App() {
+      var size = useSize();
+      var k = Math.max(0.5, Math.min(1, size.w / 1600));  // 1 at the 1600 x 900 design size
+      var mob = size.w < 640;
+      var vs = useState(Q.get("view") || (OPTIONS ? OPTIONS[0].key : "default")); var view = vs[0], setView = vs[1];
+      // remount the chart once after layout settles: headless Chrome (PNG export) keeps the first, smaller measure otherwise
+      var rs = useState(0); var remount = rs[0], setRemount = rs[1];
+      useEffect(function() { var t = setTimeout(function() { setRemount(1); }, 400); return function() { clearTimeout(t); }; }, []);
+      var opt = OPTIONS ? OPTIONS.filter(function(o) { return o.key === view; })[0] : null;
+      var title = (opt && opt.title) || "Sem receita de mercado, as baterias precisam de R$ 1,21 mi/MW/ano de receita fixa para empatar; capex e financiamento são 62% disso";
+      var fs = { title: 24 * k, sub: 16 * k, axis: 16 * k, label: 15 * k, foot: Math.max(11, 14.67 * k) };
+      var ctx = { data: DATASETS[view], view: view, k: k, fs: fs, mob: mob, hl: Q.get("hl"), upto: Q.get("upto") };
+      var pad = (mob ? 14 : 48 * k) + "px " + (mob ? 14 : 56 * k) + "px";
+      return e("div", { style: { display: "flex", flexDirection: "column", width: "100%", height: "100%", padding: pad, background: BX.bg } },
+        e("h1", { style: { fontSize: fs.title, fontWeight: 700, color: BX.text, lineHeight: 1.25, textAlign: "left" } }, title),
+        e("p", { style: { fontSize: fs.sub, fontWeight: 400, color: BX.text, marginTop: 6 * k } }, "Receita fixa necessária para uma bateria de 4 horas, por linha de custo (R$ mil/MW/ano)"),
+        (OPTIONS && !STATIC) ? e("div", { style: { display: "flex", gap: 6, marginTop: 12 * k } },
+          OPTIONS.map(function(o) {
+            var on = o.key === view;
+            return e("button", { key: o.key, onClick: function() { setView(o.key); },
+              style: { border: "1px solid " + (on ? BX.lime : BX.axis), background: on ? BX.lime : "#FFFFFF", color: on ? "#FFFFFF" : BX.text,
+                fontSize: 13, fontWeight: on ? 700 : 400, padding: "4px 12px", borderRadius: 999, cursor: "pointer" } }, o.label);
+          })) : null,
+        e("div", { key: "chart" + remount, style: { flex: 1, minHeight: 0, marginTop: 18 * k } }, ChartBody(ctx)),
+        "Nota: ponto de equilíbrio para retorno real de 12% sobre o capital próprio, com 60% de dívida. Base EPE: R$ 5.500/kW, dívida a 8% real, TUST de R$ 81." ? e("p", { style: { fontSize: fs.foot, color: BX.text, marginTop: 10 * k, lineHeight: 1.35 } }, "Nota: ponto de equilíbrio para retorno real de 12% sobre o capital próprio, com 60% de dívida. Base EPE: R$ 5.500/kW, dívida a 8% real, TUST de R$ 81.") : null,
+        e("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 24, marginTop: 6 * k,
+            fontSize: fs.foot, color: BX.text } },
+          e("span", null, "Fonte: EPE (PDE 2035); ANEEL (2026)"),
+          e("span", { style: { whiteSpace: "nowrap" } }, "@BrasilEnergiaX"))
+      );
+    }
+    // render after DM Sans loads, so the chart measures its final box (headless PNG export depends on it)
+    (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function() {
+      ReactDOM.createRoot(document.getElementById("root")).render(e(App));
+    });
+  </script>
+</body>
+</html>

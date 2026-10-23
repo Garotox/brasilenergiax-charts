@@ -1,0 +1,20 @@
+{
+ "title": "No Nordeste, 211 GW de baterias disputam 14,9 GW de margem de escoamento: 14 vezes. No resto do Brasil, 2 vezes",
+ "subtitle": "Baterias cadastradas e margem de escoamento para baterias, por região (GW)",
+ "source": "Fonte: EPE (2026); ONS (NT 0095/2026)",
+ "note": "Nota: margem efetiva após os limites de área do ONS. A EPE publica os cadastros só por região.",
+ "data": [
+  {
+   "name": "Nordeste",
+   "reg": 211.0,
+   "room": 14.9,
+   "ratio": "14x"
+  },
+  {
+   "name": "Resto do Brasil",
+   "reg": 85.8,
+   "room": 41.2,
+   "ratio": "2x"
+  }
+ ]
+}

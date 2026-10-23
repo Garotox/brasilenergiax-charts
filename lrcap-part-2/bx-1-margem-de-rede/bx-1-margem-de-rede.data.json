@@ -1,0 +1,44 @@
+{
+ "title": "Mesmo dentro dos 56 GW de margem da rede, a oferta de baterias é de 9 a 28 vezes a demanda",
+ "subtitle": "Capacidade (GW)",
+ "source": "Fonte: EPE (2026); ONS (2026); TCU (2026)",
+ "note": "Nota: margem de escoamento após os limites por barramento, subárea e área do ONS. Usinas sem MMGD. Faixa a contratar segundo o TCU.",
+ "data": [
+  {
+   "name": "Baterias cadastradas",
+   "lo": 296.8,
+   "range": 0,
+   "hl": false,
+   "fade": false,
+   "label": "296,8 GW",
+   "tip": "Baterias cadastradas na EPE: 296,8 GW"
+  },
+  {
+   "name": "Usinas operadas pelo ONS",
+   "lo": 200.5,
+   "range": 0,
+   "hl": false,
+   "fade": true,
+   "label": "200,5 GW",
+   "tip": "Usinas operadas pelo ONS: 200,5 GW"
+  },
+  {
+   "name": "Margem de rede para baterias",
+   "lo": 56.1,
+   "range": 0,
+   "hl": true,
+   "fade": false,
+   "label": "56,1 GW",
+   "tip": "Margem de escoamento para baterias: 56,1 GW"
+  },
+  {
+   "name": "A contratar",
+   "lo": 2,
+   "range": 4,
+   "hl": false,
+   "fade": false,
+   "label": "2 a 6 GW",
+   "tip": "A contratar (TCU): 2 a 6 GW"
+  }
+ ]
+}
