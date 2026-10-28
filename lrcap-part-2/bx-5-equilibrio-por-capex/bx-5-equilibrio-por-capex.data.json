@@ -2,150 +2,150 @@
  "title": "Cada R$ 1.000/kW de capex soma R$ 0,17 mi ao lance de equilíbrio; o incentivo da SUDENE tira R$ 0,05 mi no Nordeste",
  "subtitle": "Receita fixa de equilíbrio por capex total (R$ mi/MW/ano)",
  "source": "Fonte: EPE (PDE 2035); BNDES (2026); DEE África do Sul (2025); BNEF (2025); TrendForce (2026)",
- "note": "Nota: retorno real de 12%, 60% de dívida, TUST da EPE. Barras escuras: faixa da EPE de dez/2024. Faixa cinza: capex da Rodada 3 da África do Sul, ao câmbio dos lances.",
+ "note": "Nota: retorno real de 12%, 60% de dívida, TUST da EPE. Barras escuras: faixa da EPE de dez/2024. Faixa cinza: capex da Rodada 3 da África do Sul, ao câmbio dos lances. Tracejado: preços-teto dos leilões.",
  "data": [
   {
    "view": "epe",
    "capex": 3.0,
-   "be": 0.771,
+   "be": 0.769,
    "epe": false
   },
   {
    "view": "epe",
    "capex": 4.0,
-   "be": 0.945,
+   "be": 0.943,
    "epe": false
   },
   {
    "view": "epe",
    "capex": 5.0,
-   "be": 1.119,
+   "be": 1.118,
    "epe": true
   },
   {
    "view": "epe",
    "capex": 6.0,
-   "be": 1.294,
+   "be": 1.292,
    "epe": true
   },
   {
    "view": "epe",
    "capex": 7.0,
-   "be": 1.468,
+   "be": 1.466,
    "epe": false
   },
   {
    "view": "epe",
    "capex": 8.0,
-   "be": 1.642,
+   "be": 1.64,
    "epe": false
   },
   {
    "view": "epe",
    "capex": 9.0,
-   "be": 1.816,
+   "be": 1.815,
    "epe": false
   },
   {
    "view": "epe",
    "capex": 10.0,
-   "be": 1.991,
+   "be": 1.989,
    "epe": false
   },
   {
    "view": "sudene",
    "capex": 3.0,
-   "be": 0.743,
+   "be": 0.742,
    "epe": false
   },
   {
    "view": "sudene",
    "capex": 4.0,
-   "be": 0.909,
+   "be": 0.907,
    "epe": false
   },
   {
    "view": "sudene",
    "capex": 5.0,
-   "be": 1.074,
+   "be": 1.073,
    "epe": true
   },
   {
    "view": "sudene",
    "capex": 6.0,
-   "be": 1.24,
+   "be": 1.238,
    "epe": true
   },
   {
    "view": "sudene",
    "capex": 7.0,
-   "be": 1.405,
+   "be": 1.404,
    "epe": false
   },
   {
    "view": "sudene",
    "capex": 8.0,
-   "be": 1.57,
+   "be": 1.569,
    "epe": false
   },
   {
    "view": "sudene",
    "capex": 9.0,
-   "be": 1.736,
+   "be": 1.735,
    "epe": false
   },
   {
    "view": "sudene",
    "capex": 10.0,
-   "be": 1.901,
+   "be": 1.9,
    "epe": false
   },
   {
    "view": "market",
    "capex": 3.0,
-   "be": 0.783,
+   "be": 0.781,
    "epe": false
   },
   {
    "view": "market",
    "capex": 4.0,
-   "be": 0.961,
+   "be": 0.96,
    "epe": false
   },
   {
    "view": "market",
    "capex": 5.0,
-   "be": 1.14,
+   "be": 1.138,
    "epe": true
   },
   {
    "view": "market",
    "capex": 6.0,
-   "be": 1.318,
+   "be": 1.316,
    "epe": true
   },
   {
    "view": "market",
    "capex": 7.0,
-   "be": 1.496,
+   "be": 1.495,
    "epe": false
   },
   {
    "view": "market",
    "capex": 8.0,
-   "be": 1.675,
+   "be": 1.673,
    "epe": false
   },
   {
    "view": "market",
    "capex": 9.0,
-   "be": 1.853,
+   "be": 1.851,
    "epe": false
   },
   {
    "view": "market",
    "capex": 10.0,
-   "be": 2.031,
+   "be": 2.03,
    "epe": false
   }
  ]

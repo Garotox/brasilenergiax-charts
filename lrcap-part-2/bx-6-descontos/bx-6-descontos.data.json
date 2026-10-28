@@ -2,7 +2,7 @@
  "title": "Os descontos dos LRCAP passados seguiram mais a tecnologia que a disputa: de 0% a 14% abaixo do teto para gás, carvão e hidro, de 44% a 56% para óleo e biodiesel",
  "subtitle": "Desconto sobre o preço teto (%) por sobredemanda: MW habilitados sobre MW contratados (escala log)",
  "source": "Fonte: EPE (2021, 2026); CCEE (2026); Terna (2025)",
- "note": "Nota: projetos de março podem se habilitar a vários produtos. Baterias: MW cadastrados sobre 2 a 6 GW.",
+ "note": "Nota: projetos de março podem se habilitar a vários produtos. Baterias: MW cadastrados sobre 2 a 6 GW; melhor piso do dia 2 contra o teto do leilão aberto, não um preço fechado.",
  "data": [
   {
    "series": "thermal_hydro",
