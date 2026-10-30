@@ -89,7 +89,8 @@
             e(LabelList, { dataKey: "be", content: function(p) { return txt(ctx, p.x + p.width / 2, p.y - 10 * k, br(p.value, 2),
               { textAnchor: "middle" }); } })),
           X.caps.map(function(cp) { return e(ReferenceLine, { key: "cap" + cp.key, y: cp.value, stroke: BX.text, strokeDasharray: "6 5", ifOverflow: "visible",
-            label: function(p) { var v = p.viewBox; return txt(ctx, v.x + 8 * k, v.y - 8 * k, cp.label, { fontWeight: 700 }); } }); }),
+            label: function(p) { var v = p.viewBox, up = cp.key === "day1";  // 2 Dec above its line, 4 Dec below: more room between them
+              return txt(ctx, v.x + 8 * k, up ? v.y - 8 * k : v.y + 8 * k, cp.label, { fontWeight: 700, dominantBaseline: up ? "auto" : "hanging" }); } }); }),
           e(ReferenceLine, { x: X.rebase, stroke: BX.lime, strokeWidth: 4 * k, ifOverflow: "visible",
             label: function(p) { var v = p.viewBox; return e("g", null,
               txt(ctx, v.x, v.y - 30 * k, "Capex a preços de 2027:", { textAnchor: "middle", fontWeight: 700, fill: BX.olive }),

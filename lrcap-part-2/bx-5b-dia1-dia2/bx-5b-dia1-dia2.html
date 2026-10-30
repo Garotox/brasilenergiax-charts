@@ -89,7 +89,8 @@
               day2_works_high: "Importado, dívida a 20%" };
               return p.map(function(q) { return n[q.dataKey] + ": R$ " + br(q.value, 2) + " mi"; }); } }) }),
           X.caps.map(function(cp) { return e(ReferenceLine, { key: "cap" + cp.key, y: cp.value, stroke: BX.text, strokeDasharray: "6 5", ifOverflow: "visible",
-            label: function(p) { var v = p.viewBox; return txt(ctx, v.x + 8 * k, v.y - 8 * k, cp.label, { fontWeight: 700 }); } }); }),
+            label: function(p) { var v = p.viewBox, up = cp.key === "day1";  // 2 Dec above its line, 4 Dec below: more room between them
+              return txt(ctx, v.x + 8 * k, up ? v.y - 8 * k : v.y + 8 * k, cp.label, { fontWeight: 700, dominantBaseline: up ? "auto" : "hanging" }); } }); }),
           line("day2_works_high", BX.grey, 3, "6 5"),
           line("day2_works", BX.olive, 3.5),
           line("day1_bndes", BX.lime, 4.5),

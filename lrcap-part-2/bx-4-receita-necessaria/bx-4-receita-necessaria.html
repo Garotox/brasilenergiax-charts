@@ -79,7 +79,8 @@
           e(Tooltip, { cursor: { fill: "rgba(0,0,0,0.03)" }, content: e(Tip, { rows: function(p) { var r = p[0].payload;
             return ["R$ " + br(r.value) + " mil/MW/ano"]; } }) }),
           X.caps.map(function(cp) { return e(ReferenceLine, { key: "cap" + cp.key, y: cp.value, stroke: BX.text, strokeDasharray: "6 5", ifOverflow: "visible",
-            label: function(p) { var v = p.viewBox; return txt(ctx, v.x + 8 * k, v.y - 8 * k, cp.label, { fontWeight: 700 }); } }); }),
+            label: function(p) { var v = p.viewBox, up = cp.key === "day1";  // 2 Dec above its line, 4 Dec below: more room between them
+              return txt(ctx, v.x + 8 * k, up ? v.y - 8 * k : v.y + 8 * k, cp.label, { fontWeight: 700, dominantBaseline: up ? "auto" : "hanging" }); } }); }),
           e(Bar, { dataKey: "base", stackId: "a", fill: "transparent", isAnimationActive: !STATIC }),
           e(Bar, { dataKey: "value", stackId: "a", isAnimationActive: !STATIC },
             ctx.data.map(function(r, i) { return e(Cell, { key: i, fill: r.total ? BX.lime : BX.olive }); }),
