@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nos cenários do PNE 2055, as baterias chegam a entre 30 e 69 GW, de quatro a dez vezes o plano de 2036</title>
+  <title>Mesmo o cenário mais lento do PNE 2055 tem quatro vezes as baterias do plano de 2036, e a maior parte desse crescimento vem depois de 2040</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
@@ -103,7 +103,7 @@
       var rs = useState(0); var remount = rs[0], setRemount = rs[1];
       useEffect(function() { var t = setTimeout(function() { setRemount(1); }, 400); return function() { clearTimeout(t); }; }, []);
       var opt = OPTIONS ? OPTIONS.filter(function(o) { return o.key === view; })[0] : null;
-      var title = (opt && opt.title) || "Nos cenários do PNE 2055, as baterias chegam a entre 30 e 69 GW, de quatro a dez vezes o plano de 2036";
+      var title = (opt && opt.title) || "Mesmo o cenário mais lento do PNE 2055 tem quatro vezes as baterias do plano de 2036, e a maior parte desse crescimento vem depois de 2040";
       var fs = { title: 24 * k, sub: 16 * k, axis: 16 * k, label: 15 * k, foot: Math.max(11, 14.67 * k) };
       var ctx = { data: DATASETS[view], view: view, k: k, fs: fs, mob: mob, hl: Q.get("hl"), upto: Q.get("upto") };
       var pad = (mob ? 14 : 48 * k) + "px " + (mob ? 14 : 56 * k) + "px";
