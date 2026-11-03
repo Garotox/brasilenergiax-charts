@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>O plano de baterias da EPE cresceu nove vezes em duas edições, para 7,2 GW</title>
+  <title>O plano de baterias da EPE cresceu nove vezes em dois anos, para 7,2 GW</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
@@ -93,7 +93,7 @@
       var rs = useState(0); var remount = rs[0], setRemount = rs[1];
       useEffect(function() { var t = setTimeout(function() { setRemount(1); }, 400); return function() { clearTimeout(t); }; }, []);
       var opt = OPTIONS ? OPTIONS.filter(function(o) { return o.key === view; })[0] : null;
-      var title = (opt && opt.title) || "O plano de baterias da EPE cresceu nove vezes em duas edições, para 7,2 GW";
+      var title = (opt && opt.title) || "O plano de baterias da EPE cresceu nove vezes em dois anos, para 7,2 GW";
       var fs = { title: 24 * k, sub: 16 * k, axis: 16 * k, label: 15 * k, foot: Math.max(11, 14.67 * k) };
       var ctx = { data: DATASETS[view], view: view, k: k, fs: fs, mob: mob, hl: Q.get("hl"), upto: Q.get("upto") };
       var pad = (mob ? 14 : 48 * k) + "px " + (mob ? 14 : 56 * k) + "px";
@@ -108,7 +108,7 @@
                 fontSize: 13, fontWeight: on ? 700 : 400, padding: "4px 12px", borderRadius: 999, cursor: "pointer" } }, o.label);
           })) : null,
         e("div", { key: "chart" + remount, style: { flex: 1, minHeight: 0, marginTop: 18 * k } }, ChartBody(ctx)),
-        "Nota: expansão indicativa. Faixa do leilão segundo o TCU; sobram de 1,2 a 5,2 GW do plano de 2036 para leilões seguintes." ? e("p", { style: { fontSize: fs.foot, color: BX.text, marginTop: 10 * k, lineHeight: 1.35 } }, "Nota: expansão indicativa. Faixa do leilão segundo o TCU; sobram de 1,2 a 5,2 GW do plano de 2036 para leilões seguintes.") : null,
+        "Nota: expansão indicativa. Faixa do leilão segundo o TCU; sobram pelo menos 1,2 GW do plano de 2036 para leilões seguintes." ? e("p", { style: { fontSize: fs.foot, color: BX.text, marginTop: 10 * k, lineHeight: 1.35 } }, "Nota: expansão indicativa. Faixa do leilão segundo o TCU; sobram pelo menos 1,2 GW do plano de 2036 para leilões seguintes.") : null,
         e("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 24, marginTop: 6 * k,
             fontSize: fs.foot, color: BX.text } },
           e("span", null, "Fonte: EPE (PDE 2034, 2035 e 2036); TCU (2026)"),
