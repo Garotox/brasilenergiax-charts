@@ -108,10 +108,10 @@
                 fontSize: 13, fontWeight: on ? 700 : 400, padding: "4px 12px", borderRadius: 999, cursor: "pointer" } }, o.label);
           })) : null,
         e("div", { key: "chart" + remount, style: { flex: 1, minHeight: 0, marginTop: 18 * k } }, ChartBody(ctx)),
-        "Nota: expansão indicativa. Faixa do leilão segundo o TCU; sobram pelo menos 1,2 GW do plano de 2036 para leilões seguintes." ? e("p", { style: { fontSize: fs.foot, color: BX.text, marginTop: 10 * k, lineHeight: 1.35 } }, "Nota: expansão indicativa. Faixa do leilão segundo o TCU; sobram pelo menos 1,2 GW do plano de 2036 para leilões seguintes.") : null,
+        "Nota: expansão indicativa. Faixa do leilão: estimativa de mercado (ABSAE) citada pelo TCU; sobram pelo menos 1,2 GW do plano de 2036 para leilões seguintes." ? e("p", { style: { fontSize: fs.foot, color: BX.text, marginTop: 10 * k, lineHeight: 1.35 } }, "Nota: expansão indicativa. Faixa do leilão: estimativa de mercado (ABSAE) citada pelo TCU; sobram pelo menos 1,2 GW do plano de 2036 para leilões seguintes.") : null,
         e("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 24, marginTop: 6 * k,
             fontSize: fs.foot, color: BX.text } },
-          e("span", null, "Fonte: EPE (PDE 2034, 2035 e 2036); TCU (2026)"),
+          e("span", null, "Fonte: EPE (PDE 2034, 2035 e 2036); TCU (2026), citando a ABSAE"),
           e("span", { style: { whiteSpace: "nowrap" } }, "@BrasilEnergiaX"))
       );
     }
